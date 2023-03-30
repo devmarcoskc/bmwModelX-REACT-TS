@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import useMediaQuery from '../../Hooks/MediaQuery';
 import {FaBars} from 'react-icons/fa';
 import {FiX} from 'react-icons/fi';
+import { useAppSelector } from '../../Hooks/useAppSelector';
+import { useDispatch } from 'react-redux';
+import { setIsLogged } from '../../Redux/Reducers/LoginReducer';
 
 type Props = {
   positionIsFixed: boolean;
@@ -15,6 +18,14 @@ type Props = {
 const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
   const isDesktopScreen = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+
+  const LoginInfo = useAppSelector(state => state.loginUser);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+      window.location.reload();
+      dispatch(setIsLogged(false));
+  }
 
   return (
     <C.Header position={positionIsFixed}>
@@ -31,7 +42,12 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
               <C.NavsArea colorChange={colorNeedToChange}>
                   <Link to="/">Nossos Modelos</Link>
                   <Link to="/Concessionária">Concessionária</Link>
-                  <Link to="/Login">Login</Link>
+                  {!LoginInfo.isLogged &&
+                    <Link to="/Login">Login</Link>
+                  }
+                  {LoginInfo.isLogged &&
+                    <span onClick={handleLogout}>Sair</span>
+                  }
                   <Link to="/Contato">Fale Conosco</Link>
               </C.NavsArea>
             </div>

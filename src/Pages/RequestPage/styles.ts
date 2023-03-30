@@ -3,27 +3,32 @@ import styled from "styled-components";
 export const Container = styled.div`
     min-height: 100vh;
     width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-color: #f2f2f2;
+
 
     form {
         display: flex;
         flex-direction: column;
+        padding: 20px;
         height: 100%;
         max-width: 80%;
         margin: auto;
+        box-shadow: 0px 0px 5px #4169E1;
+        margin-bottom: 30px;
+        margin-top: 20px;
 
         h1 {
             font-size: 27px;
-            font-weight: 600;
+            font-weight: 300;
+            color: gray;
             margin-top: 30px;
         }
     }
  
     p {
-        font-size: 20px;
+        font-size: 17px;
         margin-top: 20px;
+        font-weight: bold;
+        color: gray;
     }
 
     .title-and-input {
@@ -92,7 +97,29 @@ export const Container = styled.div`
         color: white;
         border-radius: 10px;
         margin-top: 20px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+        transition: all ease .7s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: blue;
+        }
+    }
+
+    .returnArea {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 30px;
+        width: 150px;
+        height: 50px;
+        background-color: #4169E1;
+        border: none;
+        font-size: 18px;
+        color: white;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 30px;
         transition: all ease .7s;
         cursor: pointer;
 

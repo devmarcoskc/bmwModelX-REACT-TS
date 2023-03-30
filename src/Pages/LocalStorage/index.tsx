@@ -8,22 +8,13 @@ type Props = {}
 
 const LocalStorage = (props: Props) => {
   const [stateSelected, setStateSelected] = useState('RS');
-  const [citySelected, setCitySelected] = useState('Passo Fundo');
 
   const handleUpdateState = (e: any) => {
     setStateSelected(e.target.value);
   }
 
-  const handleUpdateCity = (e:any) => {
-    setCitySelected(e.target.value);
-  }
-
   const filteredStateToShow = BMWLocals.filter((item) => {
       return item.state === stateSelected;
-  })
-
-  const filteredCityToShow = BMWLocals.filter((item) => {
-      return item.city === citySelected;
   })
 
   return (

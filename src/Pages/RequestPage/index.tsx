@@ -6,9 +6,9 @@ import { CityType } from '../../Types/APICityTypes';
 import * as C from './styles';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../Hooks/useAppSelector';
-import formbg from "../../assets/formbg.jpg";
-import { APIrequests } from '../../RequetsAPI\'s/APIrequests';
-
+import { APIrequests } from '../../Helpers/APIrequests';
+import { useNavigate } from 'react-router-dom';
+import { FormRequestType } from '../../Types/FormRequest';
 
 const RequestPage = () => {
   const [neighborhood, setNeighborhood] = useState('');
@@ -18,10 +18,20 @@ const RequestPage = () => {
   const [citys, setCitys] = useState<CityType[]>([]);
   const [formFinished, setFormFinished] = useState(false);
 
+  const navigate = useNavigate();
+  const itemCar = useAppSelector(state => state.itemCar);
+
+  useEffect(() => {
+    if(itemCar.title === '') {
+      navigate(-1);
+    }
+  })
+
   useEffect(() => {
     const fetchDataState = async () => {
       const dataState = await APIrequests.getStatesAPI();
       setStates(dataState);
+      setValue('state', 'RO');
     }
     fetchDataState();     
   }, []);
@@ -30,32 +40,24 @@ const RequestPage = () => {
     const fetchDataCitys = async (selectedState: string) => {
       const dataCitys = await APIrequests.getCityAPI(selectedState);
       setCitys(dataCitys);
+      setValue('city', 'ALTA FLORESTA D OESTE')
     }
     fetchDataCitys(selectedState);
   },[selectedState, states]);
 
   const {
     register,
-    trigger,
     setFocus,
+    setValue,
+    handleSubmit,
     formState: {errors}
-  } = useForm();
-
-  const handleSubmit = async (e: any) => {
-    const isFormValid = await trigger();
-    if(!isFormValid) {
-      e.preventDefault();
-      setFormFinished(false)
-    } else {
-    
-      alert('Para garantir a segurança de seus dados, nenhuma informação foi enviada');
-      setFormFinished(true);
-    }
-  }
+  } = useForm<FormRequestType>();
 
   const handleAddInfoAfterCEP = async (e:any) => {
     const cep = e.target.value.replace(/\D/g, '');
     let response = await APIrequests.getAPICEP(cep);
+    setValue('neighborhood', response.bairro);
+    setValue('address', response.logradouro);
     setNeighborhood(response.bairro);
     setaddress(response.logradouro);
     setFocus('number');
@@ -65,18 +67,22 @@ const RequestPage = () => {
     setSelectedState(e.target.value);
   }
 
-  const itemCar = useAppSelector(state => state.itemCar);
+  const submitData = (data:FormRequestType) => {
+    APIrequests.sendRequestCarForm(data);
+    setFormFinished(true);
+  } 
 
   return (
     <div>
-      <C.Container style={{backgroundImage: `url('${formbg}')`}}>
-        <Header positionIsFixed={false} colorNeedToChange={true} borderBottom={true}/>
+      <C.Container>
+        <Header positionIsFixed={false} colorNeedToChange={true} borderBottom={false}/>
         {!formFinished &&
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(submitData)}
           method="POST"
           >
           <h1>Preencha o formulário abaixo:</h1>
+
           <C.FormFlexRow>
             <C.PersonalInfos>
               <p>Seu veículo escolhido:</p>
@@ -176,31 +182,53 @@ const RequestPage = () => {
 
                   <p>Escreva uma mensagem:</p>
                   <textarea
-                  placeholder='Quer mandar alguma mensagem? Escreva!'
-                  {...register("message", {
-                    maxLength: 100,
-                  })}
-                />
-                {errors.message && (
-                  <span className='error-condition'>
-                    {errors.message.type === "maxLenght" && "No máximo 100 caracteres."}
-                  </span>
-                )}
+                    placeholder='Quer mandar alguma mensagem? Escreva!'
+                    {...register("message", {
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.message && (
+                    <span className='error-condition'>
+                      {errors.message.type === "maxLenght" && "No máximo 100 caracteres."}
+                    </span>
+                  )}
                 </C.PersonalInfos>
 
                 <C.LocalInfos>
                   <p>Informe sua cidade e estado:</p>
                   <div className='title-and-input'>
-                    <select value={selectedState} onChange={handleStateUpdate}>
+
+                    <select value={selectedState} 
+                    {...register("state", {
+                      required: true,
+                      onChange: handleStateUpdate
+                    })}
+                    >
                       {states.map((state,index) => (
                         <option value={state.sigla} key={index}>{state.sigla}</option>
                       ))}
                     </select>
-                    <select className='city-select'>
+                    {errors.state && (
+                      <span className='error-condition'>
+                        {errors.state.type === "required" && "Campo obrigatório."}
+                      </span>
+                    )}
+
+                    <select className='city-select'
+                    {...register("city", {
+                      required: true,
+                    })}
+                    >
                       {citys.map((city,index) => (
                         <option key={index}>{city.nome}</option>
                       ))}
                     </select>
+                    {errors.city && (
+                      <span className='error-condition'>
+                        {errors.city.type === "required" && "Campo obrigatório."}
+                      </span>
+                    )}
+
                   </div>
 
                   <p>Informe seu CEP:</p>
@@ -214,10 +242,10 @@ const RequestPage = () => {
                     })}
                   />
                     {errors.cep && (
-                    <span className='error-condition'>
-                      {errors.cep.type === "required" && "Campo obrigatório."}
-                      {errors.cep.type === "pattern" && "Digite um CPF válido."}
-                    </span>
+                      <span className='error-condition'>
+                        {errors.cep.type === "required" && "Campo obrigatório."}
+                        {errors.cep.type === "pattern" && "Digite um CPF válido."}
+                      </span>
                     )}
 
                   <p>Informe a rua:</p>
@@ -230,13 +258,14 @@ const RequestPage = () => {
                         required: true,
                         maxLength: 100,
                         onChange(event) {
-                          setaddress(event.target.value);
-                        },
+                         setaddress(event.target.value)
+                       },
                       })}
                     />
-                    {address === null &&(
+                    {errors.address && (
                       <span className='error-condition'>
-                        Campo obrigatório.
+                        {errors.address.type === "required" && "Campo obrigatório."}
+                        {errors.address.type === "maxLenght" && "No máximo 100 caracteres."}
                       </span>
                     )}
 
@@ -250,13 +279,14 @@ const RequestPage = () => {
                         required: true,
                         maxLength: 100,
                         onChange(event) {
-                          setNeighborhood(event.target.value);
-                        },
+                         setNeighborhood(event.target.value)
+                       },
                       })}
                     />
-                    {neighborhood === null && (
+                    {errors.neighborhood && (
                       <span className='error-condition'>
-                        Campo obrigatório.
+                        {errors.neighborhood.type === "required" && "Campo obrigatório."}
+                        {errors.neighborhood.type === "maxLenght" && "No máximo 100 caracteres."}
                       </span>
                     )}
 
@@ -278,14 +308,21 @@ const RequestPage = () => {
                 </C.LocalInfos>
               </C.FormFlexRow>
 
-              <button type='submit'>
-                ENVIAR
-              </button>
+              <C.FormFlexRow>
+                <button type='submit'>
+                  ENVIAR
+                </button>
+                <div className='returnArea' onClick={() => navigate(-1)}>
+                  VOLTAR
+                </div>
+              </C.FormFlexRow>
+
             </form>
+
             }
             {formFinished &&
               <C.FinishedContainer>
-                <h1>Muito obrigado por enviar o formulário, entraremos em contato em breve.</h1>
+                <h1>NENHUM DE SEUS DADOS FORAM ENVIADOS OU GUARDADOS!</h1>
                 <Link to="/">Ir para início</Link>
               </C.FinishedContainer>
             }

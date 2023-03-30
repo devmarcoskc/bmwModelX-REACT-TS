@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
 
@@ -30,14 +30,30 @@ export const LeftSide = styled.div`
         margin-top: 5px;
     }
 
+    .register {
+        width: 100%;
+    }
+
     .login-container {
         display: flex;
         flex-direction: column;
         height: auto;
         width: 60%;
-        
+        margin:auto;
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
         p {
             margin-top:10px;
+        }
+
+        .error-msg {
+            margin-top: 5px !important;
+            color: red !important;
+            font-size: 13px !important;
         }
 
         input {
@@ -79,16 +95,51 @@ export const LeftSide = styled.div`
                 }
             }
         }
+
+        .spans-infos {
+            margin-bottom: 30px;
+            
+            p {
+                color: #262626;
+                text-decoration: underline;
+                font-size: 14px;
+            }
+        }
     }
 
 `;
 
+export const Button = styled.button`
+    margin-top: 20px;
+    border: none;
+    height: 50px;
+    font-size: 17px;
+    background-color: #4169E1;
+    color: white;
+    cursor: pointer;
+    transition: all ease .7s;
+
+    &:hover {
+        background-color: blue;
+    }
+
+    ${props => props.disabled === true &&`
+        opacity: 0.5;
+        cursor: none;
+
+        &:hover:{
+            background-color:#4169E1;
+        }
+    `}
+`;
+
 export const RightSide = styled.div`
     display: flex;
-    height: 100vh;
+    height: auto;
     width: 50%;
     background-position: center;
-    background-size: cover; 
+    background-size: cover;
+    
 
     .gradient-area {
         height: 100%;

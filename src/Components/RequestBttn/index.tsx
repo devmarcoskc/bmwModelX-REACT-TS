@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import './styles.css';
 import { useDispatch } from "react-redux";
 import { setTitle } from "../../Redux/Reducers/itemReducer";
-import { setImageBackground } from "../../Redux/Reducers/itemReducer";
 
 type Props = {
   cartitle: string;
@@ -14,7 +13,6 @@ const RequestBttn = ({cartitle}: Props) => {
 
   const handleDispatchInfos = (e:React.MouseEvent<HTMLDivElement>) => {
     dispatch(setTitle(cartitle));
-    dispatch(setImageBackground('algo'));
   }
 
   return (

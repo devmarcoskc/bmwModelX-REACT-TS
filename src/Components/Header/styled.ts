@@ -57,6 +57,19 @@ export const NavsArea = styled.div<{colorChange:boolean}>`
     a:first-child {
         padding-left: 0px;
     }
+    span {
+        color: ${props => props.colorChange ? '#666' : 'white'};
+        font-size:17px;
+        font-weight: bold;
+        text-decoration:none;
+        padding-left: 20px;
+        transition: all ease .7s;
+        cursor: pointer;
+
+        &:hover {
+            color: blue;
+        }
+    }
 `;
 
 export const MobileNavIcon = styled.div<{display:boolean}>`
