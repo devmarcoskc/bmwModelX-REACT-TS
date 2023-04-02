@@ -23,6 +23,15 @@ export const container = styled.div`
 
     @media(max-width: 768px) {
         width: 98%;
+
+        .rec-arrow {
+            font-size: 1.1rem !important;
+            color: blue !important;
+            width: 1.7rem !important;
+            height: 1.7rem !important;
+            min-width: 1.7rem !important;
+            line-height: 1.7rem !important;
+        }
     }
 
 `;

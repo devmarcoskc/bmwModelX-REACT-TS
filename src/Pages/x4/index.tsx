@@ -1,4 +1,5 @@
 import * as C from './styles';
+import {useState} from 'react';
 import IMGMAIN from '../../assets/bmwg02/IMG1.jpg';
 import IMG1 from '../../assets/bmwg02/IMG1.jpg';
 import IMGFIRST from '../../assets/bmwg02/IMG-1.jpg';
@@ -13,10 +14,11 @@ import INTERIOR from '../../assets/bmwg02/INTERIOR.jpg';
 import INTERIOR1 from '../../assets/bmwg02/INTERIOR1.jpg';
 import INTERIOR2 from '../../assets/bmwg02/INTERIOR2.jpg';
 import INTERIOR3 from '../../assets/bmwg02/INTERIOR3.jpg';
+import sliderIMG1 from '../../assets/bmwg02/slider1.jpg';
+import sliderIMG2 from '../../assets/bmwg02/slider7.jpg';
 import AMAZONIMG from '../../assets/bmwg02/AMAZONALEXA.jpg';
 import DRIVINGASSISTANT from '../../assets/bmwg02/DRIVINGASSISTANT.jpg';
 import XDRIVE from '../../assets/bmwg02/XDRIVE.jpg';
-import IMGBG from '../../assets/bmwg02/IMGMAIN.jpg';
 import PERSONALIMG from '../../assets/bmwg02/PERSONALASSISTANT.jpg';
 import FILM from '../../assets/bmwg02/FILMINTRO.mp4';
 import PrinceAndSLoganArea from '../../Components/PriceAndSloganArea';
@@ -26,16 +28,14 @@ import Footer from '../../Components/Footer';
 import Carousel from 'react-elastic-carousel';
 import { motion } from 'framer-motion';
 
-type Props = {}
-
-const BMWX4 = (props: Props) => {
+const BMWX4 = () => {
+  const [currentSlider, setCurrentSlider] = useState(0);
+  
   const isDesktopScreen = useMediaQuery("(min-width: 1060px)");
 
   const breakPoints = [
     {width: 1, itemsToShow: 1},
-    {width: 500, itemsToShow: 1},
-    {width: 768, itemsToShow: 3},
-    {width: 1200, itemsToShow: 4},
+    {width: 500, itemsToShow: 1}
   ]
   const breakPoints2 = [
     {width: 1, itemsToShow: 1},
@@ -58,6 +58,25 @@ const BMWX4 = (props: Props) => {
        IMG6: IMG6,
        IMG7: IMG7
     }
+  }
+
+  const SliderImgs = [
+    {url: sliderIMG1},
+    {url: sliderIMG2},
+    {url: IMG2},
+    {url: IMG4,}
+  ]
+  
+  const goToPrevious = () => {
+    const isFirstSlide = currentSlider === 0;
+    const newIndex = isFirstSlide ? SliderImgs.length - 1 : currentSlider -1;
+    setCurrentSlider(newIndex);
+  }
+
+  const goToNext = () => {
+    const isLastSlide = currentSlider === SliderImgs.length -1
+    const newIndex = isLastSlide ? 0 : currentSlider +1;
+    setCurrentSlider(newIndex);
   }
 
   return (
@@ -317,14 +336,24 @@ const BMWX4 = (props: Props) => {
         </Carousel>
         </C.ServicesContainer>
 
-        {/*BACKGROUND AND ADD*/}
-        <C.ImageBGAndText style={{backgroundImage:`url(${IMGBG})`}}>
-          <div className="ad-title-and-text">
-            <h1>
-              QUALIDADE, DESIGN E DESEMPENHO, OFERECENDO O MÁXIMO EM VALOR AGREGADO.
-            </h1>
+        {/*SLIDER IMAGES*/}
+        <C.SliderIMGS>
+          <div className='left-arrow-slider' onClick={goToPrevious}>
+            ❰
           </div>
-        </C.ImageBGAndText>
+          <div className='right-arrow-slider' onClick={goToNext}>
+            ❱
+          </div>
+          
+          <C.Slider margin={currentSlider}>
+         
+            {SliderImgs.map((item, index) => (
+                <C.ItemSlider key={index} style={{backgroundImage:`url(${item.url})`}}>
+                </C.ItemSlider>
+            ))}
+          </C.Slider>
+
+        </C.SliderIMGS>
 
         {/*BMW FINANCE SERVICES*/}
         <C.Container>
@@ -412,10 +441,9 @@ const BMWX4 = (props: Props) => {
         </C.Container>
 
         {/*CONTACT AREA*/}
-        <ContactArea/>
-
+        <ContactArea carTitle='BMWG02'/>
+        
         </main>
-
         <Footer/>
     </div>
   )

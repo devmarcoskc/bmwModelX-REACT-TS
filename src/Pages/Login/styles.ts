@@ -107,6 +107,10 @@ export const LeftSide = styled.div`
         }
     }
 
+    @media(max-width: 768px) {
+        width: 100%;
+    }
+
 `;
 
 export const Button = styled.button`
@@ -153,6 +157,18 @@ export const RightSide = styled.div`
             top:10;
         }
     }
+`;
 
-    
+export const MobileImgArea = styled.div`
+    height: 40vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+
+    img {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 5;
+    }
 `

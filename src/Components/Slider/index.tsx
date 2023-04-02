@@ -10,7 +10,6 @@ type Props = {
 
 const ImageSlider = ({imagesToModal, handleCloseModal}: Props) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isActiveDots, setIsActiveDot] = useState(false);
 
     const goToSlide = (slidesIndex: number) => {
           setCurrentIndex(slidesIndex);  
@@ -28,48 +27,14 @@ const ImageSlider = ({imagesToModal, handleCloseModal}: Props) => {
         </div>
         <button onClick={handleCloseModal}>FECHAR</button>
         <C.slides margin={currentIndex}>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[0].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[0].title}</h1>
-                    <p>{imagesToModal[0].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[1].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[1].title}</h1>
-                    <p>{imagesToModal[1].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[2].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[2].title}</h1>
-                    <p>{imagesToModal[2].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[3].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[3].title}</h1>
-                    <p>{imagesToModal[3].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[4].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[4].title}</h1>
-                    <p>{imagesToModal[4].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[5].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[5].title}</h1>
-                    <p>{imagesToModal[5].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
-            <C.Slider style={{backgroundImage:`url(${imagesToModal[6].IMG})`}}>
-                <C.ModalTitleAndResum>
-                    <h1>{imagesToModal[6].title}</h1>
-                    <p>{imagesToModal[6].resum}</p>
-                </C.ModalTitleAndResum>
-            </C.Slider>
+            {imagesToModal.map((sliderItem, SliderItemIndex) => (
+                <C.Slider key={SliderItemIndex} style={{backgroundImage:`url(${sliderItem.IMG})`}}>
+                    <C.ModalTitleAndResum>
+                        <h1>{sliderItem.title}</h1>
+                        <p>{sliderItem.resum}</p>
+                    </C.ModalTitleAndResum>
+                </C.Slider>
+            ))}
         </C.slides>
     </C.ContainerSlider>
   )

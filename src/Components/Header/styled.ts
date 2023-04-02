@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
+type MobileProps = {
+    colorChange: boolean;
+    display: boolean;
+}
+
 export const Header = styled.header<{position:boolean}>`
     height: 13vh;
     position: ${props => props.position ? 'fixed' : 'static'};
     top:0;
     width:100%;
-    z-index: 30;
+    z-index: 150;
 `;
 
 export const Container = styled.div<{borderBottomIsNeeded:boolean}>`
@@ -72,13 +77,13 @@ export const NavsArea = styled.div<{colorChange:boolean}>`
     }
 `;
 
-export const MobileNavIcon = styled.div<{display:boolean}>`
-    svg {
-    display: ${props => props.display ? 'none':'flex'};
-    height: 25px;
-    width: 25px;
-    color: white;
-    cursor: pointer;
+export const MobileNavIcon = styled.div<MobileProps>`
+    svg{
+        display: ${props => props.display ? 'none':'flex'};
+        height: 25px;
+        width: 25px;
+        color: ${props => props.colorChange ? 'grey' : 'white'};
+        cursor: pointer;
     }
 `;
 
@@ -90,6 +95,7 @@ export const NavMenuSideBar = styled.div`
     width:70vw;
     background-color:gray;
     opacity: 0.98;
+    z-index: 150;
 `;
 export const SideBarContainer = styled.div`
     display: flex;

@@ -14,6 +14,10 @@ export const DesignIMGArea = styled.div`
     background-position: center;
     background-size: cover;
     margin-top: 20px;
+
+    @media(max-width: 768px) {
+        height: 50vh;
+    }
 `;
 
 export const HighlightsDesign = styled.div`
@@ -64,6 +68,14 @@ export const HighlightsDesign = styled.div`
     @media(max-width: 768px) {
         .design-and-text {
             padding 10px;
+        }
+        .rec-arrow {
+            font-size: 1.1rem !important;
+            color: blue !important;
+            width: 1.7rem !important;
+            height: 1.7rem !important;
+            min-width: 1.7rem !important;
+            line-height: 1.7rem !important;
         }
     }
 `;
@@ -116,6 +128,17 @@ export const TechnologySlider = styled.div`
         p {
             font-size: 13px;
             padding: 0 15px;
+        }
+    }
+
+    @media(max-width: 768px) {
+        .rec-arrow {
+            font-size: 1.1rem !important;
+            color: blue !important;
+            width: 1.7rem !important;
+            height: 1.7rem !important;
+            min-width: 1.7rem !important;
+            line-height: 1.7rem !important;
         }
     }
 `

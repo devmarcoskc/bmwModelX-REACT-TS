@@ -140,7 +140,9 @@ const BMWX6 = (props: Props) => {
               Opções de equipamento como a grade frontal da BMW ‘Iconic Glow’, a luz laser em design X e o teto de vidro panorâmico Sky Lounge são detalhes adicionais distintos. 
               O interior é igualmente impressionante, com detalhes exclusivos de design, como o câmbio de vidro ‘CraftedClarity’, os bancos esportivos e a luz ambiente.'/>
           </C.DeisgnTextContainer>
+          
           <C.DesignIMGArea style={{backgroundImage:`url(${DESIGNBG})`}}></C.DesignIMGArea>
+
           <C.HighlightsDesign>
             <Carousel breakPoints={breakPoints}>
               <div className='design-and-text'>
@@ -193,6 +195,7 @@ const BMWX6 = (props: Props) => {
             E, graças aos recursos do banco traseiro Entertainment Professional, assentos confortáveis com função de massagem e 
             ventilação ao lado do pacote Ambient Air, é possível ter o máximo entretenimento e descanso.'/>
           </C.TechnologyContainer>
+
             <C.TechnologySlider>
               <Carousel breakPoints={breakPoints}>
                 <div className='techArea'>
@@ -235,7 +238,7 @@ const BMWX6 = (props: Props) => {
         </div>
       </InfoCarContainer>
 
-       <ContactArea/>
+       <ContactArea carTitle="BMWE71"/>
        <Footer/>
     </div>
   )

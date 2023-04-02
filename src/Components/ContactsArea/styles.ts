@@ -29,6 +29,9 @@ export const ContactGrid = styled.div`
 
         &:hover {
             background-color: gray;
+            h1, svg {
+                color: white;
+            }
         }
 
         svg {

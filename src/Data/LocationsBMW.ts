@@ -1,4 +1,6 @@
-export const BMWLocals = [
+import { LocationType } from "../Types/LocationsTypes";
+
+export const BMWLocals: LocationType[] = [
     {
         street: 'Av. Brasil Oeste, 3880 - Loja 2 - Boqueirão',
         city: 'Passo Fundo',

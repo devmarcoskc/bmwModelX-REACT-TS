@@ -106,6 +106,10 @@ export const ImageAndText = styled.div`
                 margin-top: 15px;
             }
         }
+
+        @media(max-width: 768px) {
+            margin-left: 0px !important;
+        }
     }
 `;
 export const InteriorDesignIMG = styled.div`
@@ -115,6 +119,10 @@ export const InteriorDesignIMG = styled.div`
     background-size: cover;
     z-index: 1;
     position: relative;
+
+    @media(max-width: 768px) {
+        height: 50vh;
+    }
 `
 export const InteriorDesignArea = styled.div`
     height: auto;
@@ -154,40 +162,31 @@ export const MobileDesignArea = styled.div`
     display: flex;
     margin-top: -60px;
 
+    .rec-arrow { 
+        color:blue !important;
+
+        &:hover {
+            background-color: #999;
+        }
+    }
+    .rec.rec-arrow:disabled {
+        visibility: hidden !important;
+    }
     .rec-dot_active {
-        background-color: var(--blue) !important;
-        box-shadow: 0 0 1px 3px var(--blue) !important;
+        background-color: blue;
     }
-    .rec-dot:focus,
-    .rec-dot:hover {
-        box-shadow: 0 0 1px 3px var(--blue) !important;
-    }
-    .rec-dot_active:focus,
-    .rec-dot_active:hover {
-        background-color: blue !important;
-        box-shadow: 0 0 1px 3px var(--blue) !important;
-    }
-    
     .rec-arrow {
-        
-        background-color: var(--blue) !important;
-        transition: all 0.3s ease;
         font-size: 1.1rem !important;
         color: blue !important;
         width: 1.7rem !important;
         height: 1.7rem !important;
         min-width: 1.7rem !important;
         line-height: 1.7rem !important;
-       
-    }
-    
-    .rec-arrow:hover:not(:disabled) {
-        transform: scale(1.2);
     }
 
     .IMGinterior-and-text-mobile {
-        width: 320px;
-        height: 350px;
+        width: 350px;
+        height: auto;
         display: flex;
         flex-direction: column;
         background-color: white;
@@ -210,13 +209,6 @@ export const MobileDesignArea = styled.div`
         }
     }
 
-    @media(max-width: 768px) {
-        width: 100%;
-        margin-bottom: 40px;
-        .IMGinterior-and-text-mobile {
-            height: auto;
-        }
-    }
 `;
 
 export const ServicesContainer = styled.div`
@@ -237,6 +229,17 @@ export const ServicesContainer = styled.div`
     }
     .rec-dot_active {
         background-color: blue;
+    }
+
+    @media(max-width: 768px) {
+        .rec-arrow {
+            font-size: 1.1rem !important;
+            color: blue !important;
+            width: 1.7rem !important;
+            height: 1.7rem !important;
+            min-width: 1.7rem !important;
+            line-height: 1.7rem !important;
+        }
     }
 `;
 
@@ -273,27 +276,73 @@ export const ServicesAssistantArea = styled.div`
     }
 `;
 
-export const ImageBGAndText = styled.div`
-    height: 100vh;
+export const SliderIMGS = styled.div`
+    height: 80vh;
     width: 100%;
-    background-position: center;
-    background-size: cover;
     margin-bottom: 80px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 100px;
 
-
-    .ad-title-and-text {
-        display: flex;
-        flex-direction: coumn;
-        align-items: flex-end;
-        height: 100%;
-        width: 80%;
-        margin: auto;
-
-        h1 {
-            font-size: 20px;
-            color: white;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
+    .left-arrow-slider {
+        position: absolute;
+        top: 30%;
+        transform: translate(0, 50%);
+        left: 32px;
+        font-size: 55px;
+        color: white;
+        z-index: 20;
+        padding: 7px;
+        border-radius: 5px;
+        background-color: gray;
+        cursor: pointer;
+        opacity: 0.8;
     }
-`
+    .right-arrow-slider {
+        position: absolute;
+        top: 30%;
+        transform: translate(0, 50%);
+        right: 32px;
+        font-size: 55px;
+        color: white;
+        z-index: 20;
+        padding: 7px;
+        border-radius: 5px;
+        background-color: gray;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    @media(max-width: 768px) {
+        height: 80vh;
+    }
+`;
+
+export const Slider = styled.div<{margin?:number}>`
+    display: flex;
+    height: 100%;
+    width: 400vw;
+    margin-left: ${(props) => {
+        switch(props.margin) {
+            case 0:
+                return "0vh";
+            case 1:
+                return "-100vw";
+            case 2:
+                return "-200vw";
+            case 3:
+                return "-300vw";          
+        }
+    }};
+    position: relative;
+    transition: all ease 1s;   
+    
+   
+`;
+
+export const ItemSlider = styled.div`
+    height: 100%;
+    width:100%;
+    background-size: cover;
+    background-position: center;
+`;

@@ -41,7 +41,7 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
               
               <C.NavsArea colorChange={colorNeedToChange}>
                   <Link to="/">Nossos Modelos</Link>
-                  <Link to="/Concessionária">Concessionária</Link>
+                  <Link to="/Concessionária">Concessionárias</Link>
                   {!LoginInfo.isLogged &&
                     <Link to="/Login">Login</Link>
                   }
@@ -53,7 +53,7 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
             </div>
             }
             {!isDesktopScreen &&
-              <C.MobileNavIcon display={isMenuToggled}>
+              <C.MobileNavIcon display={isMenuToggled} colorChange={colorNeedToChange}>
                 <FaBars onClick={() => setIsMenuToggled(!isMenuToggled)}/>
               </C.MobileNavIcon>
             }
@@ -63,21 +63,7 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
           <C.NavMenuSideBar>
             <C.SideBarContainer>
               <FiX onClick={() => setIsMenuToggled(false)}/>
-              <Link to="#bmwe71">
-                  BMWE71
-                </Link>
-                <Link to="#bmwe84">
-                  BMWE84
-                </Link>
-                <Link to="#bmwf15">
-                  BMWF15
-                </Link>
-                <Link to="#bmwg02">
-                  BMWG02
-                </Link>
-                <Link to="#bmwg06">
-                  BMWG06
-                </Link>
+                <Link to="/">Nossos Modelos</Link>
                 <Link to="/Concessionária">Concessionária</Link>
                 <Link to="/Login">Login</Link>
                 <Link to="/Contato">Fale Conosco</Link>

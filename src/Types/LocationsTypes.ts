@@ -3,4 +3,5 @@ export type LocationType = {
     city: string;
     state: string;
     cep: string;
+    mapLocation: string;
 }

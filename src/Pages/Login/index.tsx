@@ -11,6 +11,7 @@ import {LoginType} from '../../Types/LoginType';
 import { setIsLogged } from '../../Redux/Reducers/LoginReducer';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import useMediaQuery from '../../Hooks/MediaQuery';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -19,6 +20,8 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isDesktopScreen = useMediaQuery("(min-width: 1060px)");
 
   const {
     register,
@@ -49,6 +52,13 @@ const Login = () => {
   return (
     <div>
       <C.Container>
+        
+        {!isDesktopScreen &&
+          <C.MobileImgArea style={{backgroundImage:`url(${MYAPP})`}}>
+            <img src={myAppLogo}/>
+          </C.MobileImgArea>
+        }
+
         <C.LeftSide>
         <Link to="/">
             <img src={BMWlogo}/>
@@ -124,11 +134,14 @@ const Login = () => {
           }
         </C.LeftSide>
 
-        <C.RightSide style={{backgroundImage:`url(${MYAPP})`}}>
-          <div className='gradient-area'>
-            <img src={myAppLogo}/>
-          </div>
-        </C.RightSide>
+        {isDesktopScreen &&
+          <C.RightSide style={{backgroundImage:`url(${MYAPP})`}}>
+            <div className='gradient-area'>
+              <img src={myAppLogo}/>
+            </div>
+          </C.RightSide>
+        }
+
       </C.Container>
     </div>
   )
