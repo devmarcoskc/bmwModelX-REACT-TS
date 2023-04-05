@@ -16,6 +16,10 @@ export const ResumArea = styled.div `
         font-weight: 300;
         margin-top: 20px;
     }
+    .highlights-manual {
+        font-weight: bold;
+        margin-top:0px !important;
+    }
 
     @media(max-width: 768px) {
         h1 {

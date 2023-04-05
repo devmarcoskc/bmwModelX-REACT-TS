@@ -51,7 +51,7 @@ const HighlightArea = ({VideosToModal, ImagesAndTitle}: Props) => {
         {!modal &&
             <Carousel breakPoints={breakPoints}>
                 {ImagesAndTitle.map((item, index) => (
-                    <C.Slides style={{backgroundImage:`url(${item.img})`}} onClick={e => setModalAndVideoChosen(e, index)}>
+                    <C.Slides key={index} style={{backgroundImage:`url(${item.img})`}} onClick={e => setModalAndVideoChosen(e, index)}>
                         <C.SlidesContainer>
                             <h1>0{index}</h1>
                             <p>{item.title}</p>

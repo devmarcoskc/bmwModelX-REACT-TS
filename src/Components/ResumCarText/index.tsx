@@ -21,6 +21,7 @@ const ResumArea = ({resum, title}: Props) => {
         >
           {resum}
         </motion.p>
+        <p className='highlights-manual'>Veja mais abrindo as fotos*</p>
         <h1>OS DESTAQUES DO {title}</h1>
     </C.ResumArea>
   )
