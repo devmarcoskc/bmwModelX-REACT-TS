@@ -25,7 +25,7 @@ const RequestPage = () => {
     if(itemCar.title === '') {
       navigate(-1);
     }
-  })
+  });
 
   useEffect(() => {
     const fetchDataState = async () => {
@@ -70,8 +70,8 @@ const RequestPage = () => {
   const submitData = (data:FormRequestType) => {
     APIrequests.sendRequestCarForm(data);
     setFormFinished(true);
-  } 
-
+  }
+  
   return (
     <div>
       <C.Container>
@@ -85,7 +85,7 @@ const RequestPage = () => {
 
           <C.FormFlexRow>
             <C.PersonalInfos>
-              <p>Seu veículo escolhido:</p>
+              <label>Seu veículo escolhido:</label>
               <input
                 type="text"
                 placeholder='Nome*'
@@ -93,45 +93,49 @@ const RequestPage = () => {
                 disabled={true}
               />
 
-              <p>Informe seu nome e sobrenome:</p>
+              <label>Informe seu nome e sobrenome:</label>
               <div className='title-and-input'>
-              <div className='input-and-error'>
-              <input
-                type="text"
-                placeholder='Nome*'
-                {...register("name", {
-                  required: true,
-                  maxLength: 100,
-                })}
-              />
-              {errors.name && (
-                <span className='error-condition'>
-                  {errors.name.type === "required" && "Campo obrigatório."}
-                  {errors.name.type === "maxLenght" && "No máximo 100 caracteres."}
-                </span>
-                )}
-              </div>
-
-              <div className='input-and-error'>
-                <input
-                  type="text"
-                  placeholder='Sobrenome*'
-                  style={{marginLeft:'15px'}}
-                  {...register("lastname", {
-                    required: true,
-                    maxLength: 100,
-                  })}
-                />
-                {errors.lastname && (
-                  <span className='error-condition' style={{marginLeft:'15px'}}>
-                    {errors.lastname.type === "required" && "Campo obrigatório."}
-                    {errors.lastname.type === "maxLenght" && "No máximo 100 caracteres."}
-                  </span>
-                )}
-                </div>
+                <div className='input-and-error'>
+                  <input
+                    type="text"
+                    placeholder='Nome*'
+                    {...register("name", {
+                      required: true,
+                      maxLength: 100,
+                      pattern: /^[A-Za-z]+$/gi
+                    })}
+                  />
+                  {errors.name && (
+                    <span className='error-condition'>
+                      {errors.name.type === "required" && "Campo obrigatório."}
+                      {errors.name.type === "pattern" && "Digite um nome válido."}
+                      {errors.name.type === "maxLenght" && "No máximo 100 caracteres."}
+                    </span>
+                    )}
                 </div>
 
-                <p>Informe seu Telefone Celular:</p>
+                <div className='input-and-error'>
+                  <input
+                    type="text"
+                    placeholder='Sobrenome*'
+                    style={{marginLeft:'15px'}}
+                    {...register("lastname", {
+                      required: true,
+                      maxLength: 100,
+                      pattern: /^[A-Za-z]+[\s)^[A-Za-z]+$/gi
+                    })}
+                  />
+                  {errors.lastname && (
+                    <span className='error-condition' style={{marginLeft:'15px'}}>
+                      {errors.lastname.type === "required" && "Campo obrigatório."}
+                      {errors.lastname.type === "pattern" && "Digite um sobrenome válido."}
+                      {errors.lastname.type === "maxLenght" && "No máximo 100 caracteres."}
+                    </span>
+                  )}
+                  </div>
+                </div>
+
+                <label>Informe seu Telefone Celular:</label>
                 <input
                   type="text"
                   placeholder='Telefone*'
@@ -147,7 +151,7 @@ const RequestPage = () => {
                     </span>
                   )}
 
-                  <p>Informe seu E-mail:</p>
+                  <label>Informe seu E-mail:</label>
                   <input
                     type="email"
                     placeholder='E-mail*'
@@ -164,7 +168,7 @@ const RequestPage = () => {
                     </span>
                   )}
 
-                  <p>Informe seu CPF:</p>
+                  <label>Informe seu CPF:</label>
                   <input
                     type="text"
                     placeholder='CPF*'
@@ -180,7 +184,7 @@ const RequestPage = () => {
                     </span>
                   )}
 
-                  <p>Escreva uma mensagem:</p>
+                  <label>Escreva uma mensagem:</label>
                   <textarea
                     placeholder='Quer mandar alguma mensagem? Escreva!'
                     {...register("message", {
@@ -195,9 +199,8 @@ const RequestPage = () => {
                 </C.PersonalInfos>
 
                 <C.LocalInfos>
-                  <p>Informe sua cidade e estado:</p>
+                  <label>Informe sua cidade e estado:</label>
                   <div className='title-and-input'>
-
                     <select value={selectedState} 
                     {...register("state", {
                       required: true,
@@ -231,7 +234,7 @@ const RequestPage = () => {
 
                   </div>
 
-                  <p>Informe seu CEP:</p>
+                  <label>Informe seu CEP:</label>
                   <input
                     type="text"
                     placeholder='CEP*'
@@ -248,7 +251,7 @@ const RequestPage = () => {
                       </span>
                     )}
 
-                  <p>Informe a rua:</p>
+                  <label>Informe a rua:</label>
                     <input
                       type="text"
                       placeholder='Rua*'
@@ -269,7 +272,7 @@ const RequestPage = () => {
                       </span>
                     )}
 
-                  <p>Informe o bairro:</p>
+                  <label>Informe o bairro:</label>
                     <input
                       type="text"
                       placeholder='Bairro*'
@@ -290,7 +293,7 @@ const RequestPage = () => {
                       </span>
                     )}
 
-                  <p>Número da Residência:</p>
+                  <label>Número da Residência:</label>
                   <input
                     type="text"
                     placeholder='Número da residência*'

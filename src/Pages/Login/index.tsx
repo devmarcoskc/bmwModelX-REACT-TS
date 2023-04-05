@@ -77,7 +77,7 @@ const Login = () => {
               onSubmit={handleSubmit(handleCheckUser)}
               method="POST"
             >
-              <p>Endereço de e-mail:</p>
+              <label>Endereço de e-mail:</label>
               <input
                 type="text"
                 {...register("email", {
@@ -92,7 +92,7 @@ const Login = () => {
                 </p>
               )}
 
-              <p>Senha:</p>
+              <label>Senha:</label>
               <input
                 type="password"
                 {...register("password", {

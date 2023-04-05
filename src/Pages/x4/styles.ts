@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container80PctWidth = styled.div`
     height: auto;
     max-width: 80%;
     margin: auto;
@@ -26,14 +26,14 @@ export const Container = styled.div`
 
     @media (max-width: 768px) {
         h1 {
-            font-size: 27px;
+            font-size: 25px;
             margin-top: 30px;
         }
         video {
             width: 100%;
         }
         p {
-            margin-top: 15px;
+            margin-top: 14px;
         }
     }
 
@@ -64,7 +64,7 @@ export const ImageAndText = styled.div`
             font-family: "DM Sans", sans-serif;
 
             @media(max-width: 768px) {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
         p {
@@ -90,7 +90,7 @@ export const ImageAndText = styled.div`
             font-family: "DM Sans", sans-serif;
 
             @media(max-width: 768px) {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
 

@@ -15,7 +15,6 @@ const VideoArea = ({closeModal, video, ListOfVideos}: Props) => {
       <button onClick={closeModal}>
         FECHAR
       </button>
-      algo pra ver
     </C.Container>
   )
 }

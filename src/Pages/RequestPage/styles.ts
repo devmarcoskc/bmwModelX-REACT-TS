@@ -24,7 +24,7 @@ export const Container = styled.div`
         }
     }
  
-    p {
+    label {
         font-size: 17px;
         margin-top: 20px;
         font-weight: bold;
@@ -33,6 +33,13 @@ export const Container = styled.div`
 
     .title-and-input {
         display: flex;
+
+        @media(max-width: 768px) {
+            flex-direction: column;
+            input {
+                margin-left: 0px !important;
+            }
+        }
     }
 
     input {
@@ -48,18 +55,27 @@ export const Container = styled.div`
             border: 0.5px solid blue;
             box-shadow: 0px 5px 5px 0px #4169E1;
         }
+
     }
+
     .input-large {
         width: 300px;
+
+        @media(max-width: 768px) {
+            width: 250px;
+        }
     }
+
     .input-and-error {
         display: flex;
         flex-direction: column;
     }
+
     .error-condition {
         color: red;
         font-size: 13px;
     }
+
     textarea {
         width: 70%;
         height: 150px;
@@ -73,19 +89,26 @@ export const Container = styled.div`
             box-shadow: 0px 5px 5px 0px #4169E1;
         }   
     }
+
     .cep-input {
         margin-top: 1px;
         font-size: 13px;
     }
+
     select {
         height: 40px;
         width: 60px;
         margin-top: 10px;
         color:blue;
     }
+
     .city-select {
         width: 180px;
         margin-left: 15px;
+
+        @media(max-width: 768px) {
+            margin-left: 0px !important;
+        }
     }
 
     button {
@@ -125,6 +148,11 @@ export const Container = styled.div`
 
         &:hover {
             background-color: blue;
+        }
+
+        @media(max-width: 768px) {
+            margin-left: 0px;
+            margin-top: 0px;
         }
     }
 `;

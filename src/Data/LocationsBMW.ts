@@ -2,13 +2,6 @@ import { LocationType } from "../Types/LocationsTypes";
 
 export const BMWLocals: LocationType[] = [
     {
-        street: 'Av. Brasil Oeste, 3880 - Loja 2 - Boqueirão',
-        city: 'Passo Fundo',
-        state: 'RS',
-        cep: '99030-284',
-        mapLocation: 'https://www.google.com/maps?q=Av.+Brasil+Oeste,+3880+-+Loja+2+-+Boqueir%C3%A3o&rlz=1C1GCEA_enBR1017BR1017&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiWkuzlyvz9AhVeLrkGHZy9CUoQ_AUoAXoECAEQAw'
-    },
-    {
         street: 'Av. Rubem Bento Alves, 7977 - Cinquentenário',
         city: 'Caxias do Sul',
         state: 'RS',
@@ -21,6 +14,13 @@ export const BMWLocals: LocationType[] = [
         state: 'RS',
         cep: '93334-365',
         mapLocation: 'https://www.google.com/maps?q=R.+Ign%C3%A1cio+Treis,+495+-+Ideal&rlz=1C1GCEA_enBR1017BR1017&um=1&ie=UTF-8&sa=X&ved=2ahUKEwijzJ6oy_z9AhW3KLkGHSwsASIQ_AUoAXoECAIQAw'
+    },
+    {
+        street: 'Av. Brasil Oeste, 3880 - Loja 2 - Boqueirão',
+        city: 'Passo Fundo',
+        state: 'RS',
+        cep: '99030-284',
+        mapLocation: 'https://www.google.com/maps?q=Av.+Brasil+Oeste,+3880+-+Loja+2+-+Boqueir%C3%A3o&rlz=1C1GCEA_enBR1017BR1017&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiWkuzlyvz9AhVeLrkGHZy9CUoQ_AUoAXoECAEQAw'
     },
     {
         street: 'R. Filipinas, 250 - Jardim Lindóia',
@@ -37,25 +37,11 @@ export const BMWLocals: LocationType[] = [
         mapLocation: 'https://www.google.com/maps/place/Av.+Sen.+Tarso+Dutra,+285+-+Petr%C3%B3polis,+Porto+Alegre+-+RS,+90690-140/@-30.0414041,-51.1758063,17z/data=!3m1!4b1!4m6!3m5!1s0x9519778cb2a95019:0x93ac93a2bbf40667!8m2!3d-30.0414041!4d-51.1736176!16s%2Fg%2F11c224c1cf'
     },
     {
-        street: 'R. Cel. Marcos Rovaris, 281 - Centro',
-        city: 'Criciúma',
+        street: 'Av. do Estado Dalmo Vieira, 600 - Ariribá',
+        city: 'Balneário Camboriú',
         state: 'SC',
-        cep: '88801-100',
-        mapLocation: 'https://www.google.com/maps?q=R.+Cel.+Marcos+Rovaris,+281+-+Centro&rlz=1C1GCEA_enBR1017BR1017&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjrtLrny_z9AhUjLbkGHf2rDkcQ_AUoAXoECAEQAw'
-    },
-    {
-        street: 'Av. Fernando Machado, 2042-D - Passos de Fortes',
-        city: 'Chapecó',
-        state: 'SC',
-        cep: '89805-042',
-        mapLocation: 'https://www.google.com/maps/place/BMW+e+BMW+Motorrad+Top+Car+-+Chapec%C3%B3+(Carros+e+Motos)/@-27.0875275,-52.623076,17z/data=!3m1!4b1!4m6!3m5!1s0x94e4b5c6a0130995:0x440b88d2f44d4309!8m2!3d-27.0875275!4d-52.6208873!16s%2Fg%2F11lqm2tm9c'
-    },
-    {
-        street: 'R. Visc. de Cairú, 176 - Estreito',
-        city: 'Florianópolis',
-        state: 'SC',
-        cep: '88075-020',
-        mapLocation: 'https://www.google.com/maps/place/R.+Visc.+de+Cair%C3%BA,+176+-+Estreito,+Florian%C3%B3polis+-+SC,+88075-020/@-27.595083,-48.5749258,17z/data=!3m1!4b1!4m6!3m5!1s0x952737ec141b0807:0xc2048d02f206731a!8m2!3d-27.595083!4d-48.5727371!16s%2Fg%2F11c43ww_hd'
+        cep: '88338-635',
+        mapLocation: 'https://www.google.com/maps/place/Av.+do+Estado+Dalmo+Vieira,+600+-+Aririb%C3%A1,+Balne%C3%A1rio+Cambori%C3%BA+-+SC,+88338-635/@-26.9609438,-48.6426821,17z/data=!3m1!4b1!4m6!3m5!1s0x94d8ca20cb620c1b:0xb67b375a260ddb15!8m2!3d-26.9609438!4d-48.6404934!16s%2Fg%2F11s9w3t43x'
     },
     {
         street: 'R. Hermann Huscher, 729 - Vila Formosa',
@@ -65,11 +51,25 @@ export const BMWLocals: LocationType[] = [
         mapLocation: 'https://www.google.com/maps/place/BMW+Top+Car+-+Blumenau/@-26.9374487,-49.0715655,17z/data=!4m10!1m2!2m1!1sR.+Hermann+Huscher,+729+-+Vila+Formosa!3m6!1s0x94df18f116520d63:0x98999b213fa3c292!8m2!3d-26.9359818!4d-49.0674243!15sCiZSLiBIZXJtYW5uIEh1c2NoZXIsIDcyOSAtIFZpbGEgRm9ybW9zYVokIiJyIGhlcm1hbm4gaHVzY2hlciA3MjkgdmlsYSBmb3Jtb3NhkgEKYm13X2RlYWxlcpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSQmVXOWZUMmgzUlJBQuABAA!16s%2Fg%2F1tslkwl6'
     },
     {
-        street: 'Av. do Estado Dalmo Vieira, 600 - Ariribá',
-        city: 'Balneário Camboriú',
+        street: 'Av. Fernando Machado, 2042-D - Passos de Fortes',
+        city: 'Chapecó',
         state: 'SC',
-        cep: '88338-635',
-        mapLocation: 'https://www.google.com/maps/place/Av.+do+Estado+Dalmo+Vieira,+600+-+Aririb%C3%A1,+Balne%C3%A1rio+Cambori%C3%BA+-+SC,+88338-635/@-26.9609438,-48.6426821,17z/data=!3m1!4b1!4m6!3m5!1s0x94d8ca20cb620c1b:0xb67b375a260ddb15!8m2!3d-26.9609438!4d-48.6404934!16s%2Fg%2F11s9w3t43x'
+        cep: '89805-042',
+        mapLocation: 'https://www.google.com/maps/place/BMW+e+BMW+Motorrad+Top+Car+-+Chapec%C3%B3+(Carros+e+Motos)/@-27.0875275,-52.623076,17z/data=!3m1!4b1!4m6!3m5!1s0x94e4b5c6a0130995:0x440b88d2f44d4309!8m2!3d-27.0875275!4d-52.6208873!16s%2Fg%2F11lqm2tm9c'
+    },
+    {
+        street: 'R. Cel. Marcos Rovaris, 281 - Centro',
+        city: 'Criciúma',
+        state: 'SC',
+        cep: '88801-100',
+        mapLocation: 'https://www.google.com/maps?q=R.+Cel.+Marcos+Rovaris,+281+-+Centro&rlz=1C1GCEA_enBR1017BR1017&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjrtLrny_z9AhUjLbkGHf2rDkcQ_AUoAXoECAEQAw'
+    },
+    {
+        street: 'R. Visc. de Cairú, 176 - Estreito',
+        city: 'Florianópolis',
+        state: 'SC',
+        cep: '88075-020',
+        mapLocation: 'https://www.google.com/maps/place/R.+Visc.+de+Cair%C3%BA,+176+-+Estreito,+Florian%C3%B3polis+-+SC,+88075-020/@-27.595083,-48.5749258,17z/data=!3m1!4b1!4m6!3m5!1s0x952737ec141b0807:0xc2048d02f206731a!8m2!3d-27.595083!4d-48.5727371!16s%2Fg%2F11c43ww_hd'
     },
     {
         street: 'R. Botuverá, 508 - São Marcos',

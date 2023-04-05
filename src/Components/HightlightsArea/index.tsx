@@ -5,23 +5,9 @@ import { useState } from 'react';
 import VideoArea from './Video';
 
 type Props = {
-    imagesToUse: {
-        IMG1: string;
-        IMG2: string;
-        IMG3: string;
-        IMG4: string;
-        IMG5: string;
-        IMG6: string;
-    };
-    resum: string;
-    titlesHighlights: {
-        titleH1: string;
-        titleH2: string;
-        titleH3: string;
-        titleH4: string;
-        titleH5: string;
-        titleH6: string;
-    }
+    ImagesAndTitle: {
+        img: string, title: string
+    }[],
     VideosToModal : {
       FILM1: string,
       FILM2: string,
@@ -32,7 +18,7 @@ type Props = {
     }
 }
 
-const HighlightArea = ({imagesToUse, VideosToModal, titlesHighlights}: Props) => {
+const HighlightArea = ({VideosToModal, ImagesAndTitle}: Props) => {
     const [modal, setModal] = useState(false);
     const [videoChosen, setVideoChosen] = useState(0);
 
@@ -64,42 +50,14 @@ const HighlightArea = ({imagesToUse, VideosToModal, titlesHighlights}: Props) =>
     <C.container>
         {!modal &&
             <Carousel breakPoints={breakPoints}>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG1})`}} onClick={e => setModalAndVideoChosen(e, 0)}>
-                    <C.SlidesContainer>
-                        <h1>01</h1>
-                        <p>{titlesHighlights?.titleH1}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG2})`}} onClick={e => setModalAndVideoChosen(e, 1)}>
-                    <C.SlidesContainer>
-                        <h1>02</h1>
-                        <p>{titlesHighlights?.titleH2}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG3})`}} onClick={e => setModalAndVideoChosen(e, 2)}>
-                    <C.SlidesContainer>
-                        <h1>03</h1>
-                        <p>{titlesHighlights?.titleH3}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG4})`}} onClick={e => setModalAndVideoChosen(e, 3)}>
-                    <C.SlidesContainer>
-                        <h1>04</h1>
-                        <p>{titlesHighlights?.titleH4}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG5})`}} onClick={e => setModalAndVideoChosen(e, 4)}>
-                    <C.SlidesContainer>
-                        <h1>05</h1>
-                        <p>{titlesHighlights?.titleH5}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
-                <C.Slides style={{backgroundImage: `url(${imagesToUse.IMG6})`}} onClick={e => setModalAndVideoChosen(e, 5)}>
-                    <C.SlidesContainer>
-                        <h1>06</h1>
-                        <p>{titlesHighlights?.titleH6}</p>
-                    </C.SlidesContainer>
-                </C.Slides>
+                {ImagesAndTitle.map((item, index) => (
+                    <C.Slides style={{backgroundImage:`url(${item.img})`}} onClick={e => setModalAndVideoChosen(e, index)}>
+                        <C.SlidesContainer>
+                            <h1>0{index}</h1>
+                            <p>{item.title}</p>
+                        </C.SlidesContainer>
+                    </C.Slides>
+                ))}
             </Carousel>
         }
 

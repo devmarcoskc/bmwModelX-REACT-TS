@@ -28,20 +28,18 @@ import TECH1 from '../../assets/bmwe71/TECH1.jpg';
 import TECH2 from '../../assets/bmwe71/TECH2.jpg';
 import TECH3 from '../../assets/bmwe71/TECH3.jpg';
 import TECH4 from '../../assets/bmwe71/TECH4.jpg';
-import { ItemDataType } from '../../Types/itemDataTypes';
-import PrinceAndSLoganArea from '../../Components/PriceAndSloganArea';
+import CarBannerHeader from '../../Components/CarBannerHeader';
 import InfoCarContainer from '../../Components/InfoCarContainer';
 import ContactArea from '../../Components/ContactsArea';
 import Footer from '../../Components/Footer';
 import HighlightArea from '../../Components/HightlightsArea';
-import ResumArea from '../../Components/ResumArea';
+import ResumArea from '../../Components/ResumCarText';
 import * as C from './styles';
 import TitleAndText from '../../Components/TitleAndText';
 import Carousel from 'react-elastic-carousel';
 
-type Props = {}
 
-const BMWX6 = (props: Props) => {
+const BMWX6 = () => {
 
   const breakPoints = [
     {width: 1, itemsToShow: 1},
@@ -80,22 +78,6 @@ const BMWX6 = (props: Props) => {
        IMG6: IMG6,
        IMG7: IMG7
     },
-    ImagesToHighlights: {
-       IMG1: HIMAGE1,
-       IMG2: HIMAGE2,
-       IMG3: HIMAGE3,
-       IMG4: HIMAGE4,
-       IMG5: HIMAGE5,
-       IMG6: HIMAGE6,
-    },
-    TitleHighlights: {
-      titleH1: 'DESIGN DOMINANTE',
-      titleH2: 'PURA PÔTENCIA RADIANTE',
-      titleH3: 'SUSPENSÃO PERFEITA',
-      titleH4: 'VERDADEIRAMENTE ESPORTIVO',
-      titleH5: 'VERDADEIRA GRANDEZA',
-      titleH6: 'PIONEIRO'
-     },
     VideosToShow: {
       FILM1: FILM1,
       FILM2: FILM2,
@@ -105,32 +87,41 @@ const BMWX6 = (props: Props) => {
       FILM6: FILM6
     }
   }
+
+  const HighlightInfos = [
+    {img: HIMAGE1, title: 'DESIGN DOMINANTE',},
+    {img: HIMAGE2, title: 'PURA PÔTENCIA RADIANTE'},
+    {img: HIMAGE3, title: 'SUSPENSÃO PERFEITA'},
+    {img: HIMAGE4, title: 'VERDADEIRAMENTE ESPORTIVO'},
+    {img: HIMAGE5, title: 'VERDADEIRA GRANDEZA'},
+    {img: HIMAGE6, title: 'PIONEIRO'},
+  ]
+
   return (
     <div>
-       <PrinceAndSLoganArea
-       backgroundIMG={BMWE71BG}
-       title="BMWE71"
-       subtitle="O NOVO BMW X6"
-       price="R$ 744.340"
-       fabrication="Gasolina"
+       <CarBannerHeader
+          backgroundIMG={BMWE71BG}
+          title="BMWE71"
+          subtitle="O NOVO BMW X6"
+          price="R$ 744.340"
+          fabrication="Gasolina"
        />
 
        <ResumArea resum={ItemToShow.resum} title="BMWE 71"/>
 
-       <HighlightArea imagesToUse={ItemToShow.ImagesToHighlights} 
-       resum={ItemToShow.resum} 
-       VideosToModal={ItemToShow.VideosToShow}
-       titlesHighlights={ItemToShow.TitleHighlights}
+       <HighlightArea 
+        VideosToModal={ItemToShow.VideosToShow}
+        ImagesAndTitle={HighlightInfos}
        /> 
        
        <InfoCarContainer
-       title="BMWE71"
-       resum={ItemToShow.resum}
-       modalTitles={ItemToShow.modalTitles}
-       description={ItemToShow.description}
-       design={ItemToShow.design}
-       pageSubTitle="POTÊNCIA QUE ATRAI"
-       imagesToModal={ItemToShow.ImagesTomodal}
+        title="BMWE71"
+        resum={ItemToShow.resum}
+        modalTitles={ItemToShow.modalTitles}
+        description={ItemToShow.description}
+        design={ItemToShow.design}
+        pageSubTitle="POTÊNCIA QUE ATRAI"
+        imagesToModal={ItemToShow.ImagesTomodal}
        >
         <div>
           {/*DESIGN AREA HIGHLIGHTS*/}
@@ -142,47 +133,50 @@ const BMWX6 = (props: Props) => {
           </C.DeisgnTextContainer>
           
           <C.DesignIMGArea style={{backgroundImage:`url(${DESIGNBG})`}}></C.DesignIMGArea>
-
           <C.HighlightsDesign>
             <Carousel breakPoints={breakPoints}>
               <div className='design-and-text'>
                 <img src={DESIGN1}/>
                 <h4>Grade BMW Iconic Glow</h4>
-                <p>O BMW Live Cockpit, com função de navegação, 
-                  inclui um painel de instrumentos de 5,1 polegadas, 
-                  com controle por toque de alta resolução de 10,25 polegadas.
+                <p>Pellentesque habitant morbi tristique 
+                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
+                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
                 </p>
               </div>
                 <div className='design-and-text'>
                   <img src={DESIGN2}/>
                   <h4>Luz laser do BMW.</h4>
-                  <p>Os Bancos M sport com ajuste para o motorista e o passageiro dianteiro
-                  apresentam várias opções de ajuste manual, incluindo a posição longitudinal, o encosto e a angulação do banco.
-                  Adicionalmente, para o motorista é possível ajustar a largura do encosto.
+                  <p>Pellentesque habitant morbi tristique 
+                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
+                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
                   </p>
                 </div>
-              <div className='design-and-text' style={{paddingRight: '15px'}}>
+              <div className='design-and-text'>
                 <img src={DESIGN3}/>
                 <h4>Luz de boas vindas.</h4>
-                <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                  e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                  criam uma sensação de alta qualidade.
+                <p>Pellentesque habitant morbi tristique 
+                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
+                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
                 </p>
               </div>
-              <div className='design-and-text' style={{paddingRight: '15px'}}>
+              <div className='design-and-text'>
                 <img src={DESIGN4}/>
                 <h4>Teto Solar panorâmico</h4>
-                  <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                    e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                    criam uma sensação de alta qualidade.
+                  <p>Pellentesque habitant morbi tristique 
+                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
+                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
                   </p>
               </div>
               <div className='design-and-text' style={{paddingRight: '15px'}}>
                   <img src={DESIGN5}/>
                   <h4>Rodas em liga leve Doube-Spoke de 22"polegadas</h4>
-                  <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                    e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                    criam uma sensação de alta qualidade.
+                  <p>Pellentesque habitant morbi tristique 
+                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                  ultricies eget, tempor sit amet, ante. 
                   </p>
               </div>
             </Carousel>
@@ -201,40 +195,37 @@ const BMWX6 = (props: Props) => {
                 <div className='techArea'>
                   <img src={TECH1}/>
                   <h4>Conjunto do compartimento de bagagem.</h4>
-                  <p>O BMW Live Cockpit, com função de navegação, 
-                    inclui um painel de instrumentos de 5,1 polegadas, 
-                    com controle por toque de alta resolução de 10,25 polegadas.
+                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
+                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
                   </p>
                 </div>
 
                 <div className='techArea'>
                   <img src={TECH2}/>
                   <h4>Porta-copos com controle de temperatura.</h4>
-                  <p>Os Bancos M sport com ajuste para o motorista e o passageiro dianteiro
-                  apresentam várias opções de ajuste manual, incluindo a posição longitudinal, o encosto e a angulação do banco.
-                  Adicionalmente, para o motorista é possível ajustar a largura do encosto.
+                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
+                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
                   </p>
                 </div>
 
                 <div className='techArea' style={{paddingRight: '15px'}}>
                   <img src={TECH3}/>
                   <h4>BMW Live Cockpit Professional.</h4>
-                  <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                    e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                    criam uma sensação de alta qualidade.
+                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
+                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
                   </p>
                 </div>
 
                 <div className='techArea' style={{paddingRight: '15px'}}>
                   <img src={TECH4}/>
                   <h4>Banco traseiro Entertainment Professional.</h4>
-                    <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                      e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                      criam uma sensação de alta qualidade.
+                    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
+                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
                     </p>
                 </div>
               </Carousel>
             </C.TechnologySlider>
+            
         </div>
       </InfoCarContainer>
 

@@ -87,6 +87,10 @@ export const Slider = styled.div`
     height:100vh;
     background-position: center;
     background-size: cover;
+
+    @media(max-width: 768px) {
+        background-position: -580px;
+    }
 `;
 
 export const ModalTitleAndResum = styled.div`

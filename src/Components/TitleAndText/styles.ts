@@ -25,4 +25,13 @@ export const Container = styled.div `
             font-size: 16px;
         }
     }
+
+    @media(max-width: 380px) {
+        h1 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 14.5px;
+        }
+    }
 `

@@ -42,7 +42,7 @@ export const ImgLogoArea = styled.div`
     }
 `;
 
-export const NavsArea = styled.div<{colorChange:boolean}>`
+export const NavsArea = styled.nav<{colorChange:boolean}>`
     display: flex;
     height: 100%;
     align-items:center;
@@ -87,7 +87,7 @@ export const MobileNavIcon = styled.div<MobileProps>`
     }
 `;
 
-export const NavMenuSideBar = styled.div`
+export const NavMenuSideBar = styled.nav`
     height: 100vh;
     position: fixed;
     top:0;

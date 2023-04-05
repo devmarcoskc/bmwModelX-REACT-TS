@@ -19,16 +19,14 @@ import HIMAGE4 from '../../assets/bmwe84/Highlights/IMG4.jpg';
 import HIMAGE5 from '../../assets/bmwe84/Highlights/IMG5.jpg';
 import HIMAGE6 from '../../assets/bmwe84/Highlights/IMG6.jpg';
 
-import PrinceAndSLoganArea from "../../Components/PriceAndSloganArea";
+import CarBannerHeader from "../../Components/CarBannerHeader";
 import InfoCarContainer from "../../Components/InfoCarContainer";
 import ContactArea from "../../Components/ContactsArea";
 import Footer from "../../Components/Footer";
-import ResumArea from "../../Components/ResumArea";
+import ResumArea from "../../Components/ResumCarText";
 import HighlightArea from "../../Components/HightlightsArea";
 
-type Props = {}
-
-const BMWX1 = (props: Props) => {
+const BMWX1 = () => {
 
   const ItemToShow = {
     design: 'No centro da frente do veículo, se localiza a grade curva dupla da BMW, distinta e abrangente, em um formato quase retangular. Juntamente com os faróis em LED adaptativos, que se estendem até a extemidade do veículo, que se estendem até à extremidade do veículo, o novo BMW X1 apresenta uma presença marcante. Com sua frente avantajada, design integrado das superfícies e proporções verticais, o novo BMW X1 apresenta uma silhueta que é extremamente dinâmica. Graças a interação entre o vidro escuro e transparente e o padrão hexagonal existente na lateral do veículo, bem como os faróis traseiros e tridimensionais, com seu formato em L, apresentam uma presença morderna, sem dúvida.',
@@ -60,22 +58,6 @@ const BMWX1 = (props: Props) => {
       IMG6: IMG6,
       IMG7: IMG7
      },
-     TitleHighlights: {
-      titleH1: 'TEXTURA PERFEITA',
-      titleH2: 'FARÓIS LED ADAPTATIVOS',
-      titleH3: 'SUSPENSÃO PERFEITA',
-      titleH4: 'INTERIOR INOVADOR',
-      titleH5: 'FEITO PRA TUDO',
-      titleH6: 'EXPERIÊNCIA ÚNICA'
-     },
-     ImagesToHighlights: {
-      IMG1: HIMAGE1,
-      IMG2: HIMAGE2,
-      IMG3: HIMAGE3,
-      IMG4: HIMAGE4,
-      IMG5: HIMAGE5,
-      IMG6: HIMAGE6,
-   },
    VideosToShow: {
      FILM1: FILM1,
      FILM2: FILM2,
@@ -86,35 +68,42 @@ const BMWX1 = (props: Props) => {
    }
   }
 
+  const HighlightInfos = [
+    {img: HIMAGE1, title: 'TEXTURA PERFEITA',},
+    {img: HIMAGE2, title: 'FARÓIS LED ADAPTATIVOS'},
+    {img: HIMAGE3, title: 'SUSPENSÃO PERFEITA'},
+    {img: HIMAGE4, title: 'INTERIOR INOVADOR'},
+    {img: HIMAGE5, title: 'FEITO PRA TUDO'},
+    {img: HIMAGE6, title: 'EXPERIÊNCIA ÚNICA'},
+  ]
+
   return (
     <div>
-      <PrinceAndSLoganArea
-      backgroundIMG={IMGMAIN}
-      title="BMW84 X1"
-      subtitle="VIVA NOSSO SONHOS"
-      price="R$ 296.950"
-      fabrication="Gasolina"
+      <CarBannerHeader
+        backgroundIMG={IMGMAIN}
+        title="BMW84 X1"
+        subtitle="VIVA NOSSO SONHOS"
+        price="R$ 296.950"
+        fabrication="Gasolina"
       />
 
       <ResumArea resum={ItemToShow.resum} title="BMWE 71"/>
 
-      <HighlightArea imagesToUse={ItemToShow.ImagesToHighlights} 
-      resum={ItemToShow.resum} 
+      <HighlightArea ImagesAndTitle={HighlightInfos}
       VideosToModal={ItemToShow.VideosToShow}
-      titlesHighlights={ItemToShow.TitleHighlights}
       /> 
 
       <InfoCarContainer
-      title="BMWE84 X1"
-      resum={ItemToShow.resum}
-      modalTitles={ItemToShow.modalTitles}
-      description={ItemToShow.description}
-      design={ItemToShow.design}
-      pageSubTitle="INOVAÇÃO E CONFORTO, NO NOVO BMW SÉRIE X1."
-      imagesToModal={ItemToShow.ImagesTomodal}
+        title="BMWE84 X1"
+        resum={ItemToShow.resum}
+        modalTitles={ItemToShow.modalTitles}
+        description={ItemToShow.description}
+        design={ItemToShow.design}
+        pageSubTitle="INOVAÇÃO E CONFORTO, NO NOVO BMW SÉRIE X1."
+        imagesToModal={ItemToShow.ImagesTomodal}
       />
 
-      <ContactArea/>
+      <ContactArea carTitle="BMW X1"/>
       <Footer/>
     </div>
   )

@@ -42,113 +42,112 @@ const InfoCarContainer = ({design, imagesToModal, modalTitles, description, page
     <main>
         <C.InfoCarContainer>
          
-          <C.GridDesignArea>
-            <TitleAndText title={`O SEU DESIGN:`} text={design}/>
-            <ModalImg imagesToModal={
-              [
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-              ] 
-            } 
-            />
-            <ModalImg  imagesToModal={
-              [
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1}
-              ]
-            } 
-            />
-            <ModalImg  imagesToModal={
-              [
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2}
-              ]
-              
-            } 
-            marginNeeded={true}
-            />
-          </C.GridDesignArea>
-          </C.InfoCarContainer>
+            <C.GridDesignArea>
+              <TitleAndText title={`O SEU DESIGN:`} text={design}/>
+              <ModalImg 
+                imagesToModal={
+                  [
+                    {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                    {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                    {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                    {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                    {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                    {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                    {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                  ] 
+                } 
+              />
+              <ModalImg 
+                imagesToModal={
+                  [
+                    {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                    {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                    {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                    {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                    {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                    {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                    {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1}
+                  ]
+                } 
+              />
+              <ModalImg 
+                imagesToModal={
+                  [
+                    {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                    {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                    {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                    {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                    {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                    {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                    {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2}
+                  ] 
+                } 
+                marginNeeded={true}
+              />
+            </C.GridDesignArea>
+        </C.InfoCarContainer>
 
           {children}
           
           <C.InfoCarContainer>
-          <TitleAndText title={pageSubTitle} text={description}/>
-          <C.LastImagesArea>
-            <ModalImg 
-             imagesToModal={
-              [
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3}
-              ] 
-            } 
-            />
-            <ModalImg 
-            imagesToModal={
-              [
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4}
-              ]
-            } 
-            marginNeeded={true}
-            />
-            <ModalImg 
-            imagesToModal={
-              [
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5}
-              ]
-            } 
-            />
-            <ModalImg 
-            imagesToModal={
-              [
-                {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
-                {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
-                {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
-                {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
-                {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
-                {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
-                {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
-              ]
-            } 
-            marginNeeded={true}
-            />
-            
-          </C.LastImagesArea>
+            <TitleAndText title={pageSubTitle} text={description}/>
+              <C.LastImagesArea>
+                <ModalImg 
+                  imagesToModal={
+                    [
+                      {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                      {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                      {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                      {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                      {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                      {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                      {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3}
+                    ] 
+                  } 
+                />
+                <ModalImg 
+                  imagesToModal={
+                    [
+                      {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                      {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                      {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                      {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                      {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                      {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                      {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4}
+                    ]
+                  } 
+                  marginNeeded={true}
+                />
+                <ModalImg 
+                  imagesToModal={
+                    [
+                      {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                      {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                      {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                      {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                      {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                      {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                      {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5}
+                    ]
+                  } 
+                />
+                <ModalImg 
+                  imagesToModal={
+                    [
+                      {IMG: imagesToModal.IMG7, title: modalTitles.title7, resum: modalTitles.resum7},
+                      {IMG: imagesToModal.IMG1, title: modalTitles.title1, resum: modalTitles.resum1},
+                      {IMG: imagesToModal.IMG2, title: modalTitles.title2, resum: modalTitles.resum2},
+                      {IMG: imagesToModal.IMG3, title: modalTitles.title3, resum: modalTitles.resum3},
+                      {IMG: imagesToModal.IMG4, title: modalTitles.title4, resum: modalTitles.resum4},
+                      {IMG: imagesToModal.IMG5, title: modalTitles.title5, resum: modalTitles.resum5},
+                      {IMG: imagesToModal.IMG6, title: modalTitles.title6, resum: modalTitles.resum6},
+                    ]
+                  } 
+                  marginNeeded={true}
+                />
+            </C.LastImagesArea>
           </C.InfoCarContainer>
-
-
       </main>
   )
 }

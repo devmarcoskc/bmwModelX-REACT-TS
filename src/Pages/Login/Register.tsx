@@ -3,16 +3,14 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { RegisterType } from '../../Types/FormRegisterType';
 import { SendUserRegister } from '../../Helpers/SendRegisterUser';
+import { Link } from 'react-router-dom';
 
 type Props = {
     handleGoToLogin: () => void;
 }
 
 const Register = ({handleGoToLogin}: Props) => {
-  useEffect(() => {
-    alert('Nenhum dos seus dados serão enviados para nenhum lugar. Só ficaram salvos em sua localStorage, que é do seu próprio navegador. Este site tem o propósito de estudo apenas.')
-  })
-
+  const [registerIsFinished, setRegisterIsFinished] = useState(false);
   const [registering, setRegistering] = useState(false);
 
   const {
@@ -27,16 +25,16 @@ const Register = ({handleGoToLogin}: Props) => {
     setRegistering(true);
     const response = await SendUserRegister(data)
     if(response === true) {
-        alert('usuário registrado com sucesso!')
+        setRegisterIsFinished(true);
     }
     setRegistering(false);
-    handleGoToLogin();
   }
 
   const watchPassword = watch('password');
 
   return (
     <div className='register'>
+      {!registerIsFinished &&
         <div className='login-container'>
             <div className='register-text'>
               <p>Já tem uma conta? Faça seu <span onClick={handleGoToLogin}>Login aqui</span></p>
@@ -47,7 +45,7 @@ const Register = ({handleGoToLogin}: Props) => {
               method="POST"
             >
 
-            <p>Primeiro nome:</p>
+            <label>Primeiro nome:</label>
             <input
               type="text"
               {...register("name", {
@@ -62,7 +60,7 @@ const Register = ({handleGoToLogin}: Props) => {
               </p>
             )}
 
-            <p>Sobrenome:</p>
+            <label>Sobrenome:</label>
             <input
               type="text"
               {...register("lastname", {
@@ -77,7 +75,7 @@ const Register = ({handleGoToLogin}: Props) => {
               </p>
             )}
 
-            <p>Email:</p>
+            <label>Email:</label>
             <input
               {...register("email", {
                 required: true,
@@ -91,7 +89,7 @@ const Register = ({handleGoToLogin}: Props) => {
               </p>
             )}
 
-            <p>Senha:</p>
+            <label>Senha:</label>
             <input
               type="password"
               {...register("password", {
@@ -106,7 +104,7 @@ const Register = ({handleGoToLogin}: Props) => {
               </p>
             )}
 
-            <p>Confirme sua senha:</p>
+            <label>Confirme sua senha:</label>
             <input
               type="password"
               {...register("confirmPassword", {
@@ -136,6 +134,16 @@ const Register = ({handleGoToLogin}: Props) => {
               
             </form>
           </div>
+          }
+
+          {registerIsFinished &&
+            <C.FormFinishedContianer>
+              <h1>Usuário registrado com sucesso!</h1>
+              <h4>Nenhum de seus dados foram enviados para nenhum lugar, ficaram salvos em sua localStorage!</h4>
+              <p>Para fazer o login utilize o email e a senha utilizados nesse cadastro!</p>
+              <button onClick={handleGoToLogin}>Fazer Login</button>
+            </C.FormFinishedContianer>
+          }
     </div>
   )
 }

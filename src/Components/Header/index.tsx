@@ -17,7 +17,7 @@ type Props = {
 
 const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
   const isDesktopScreen = useMediaQuery("(min-width: 1060px)");
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
 
   const LoginInfo = useAppSelector(state => state.loginUser);
   const dispatch = useDispatch();

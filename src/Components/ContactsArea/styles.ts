@@ -5,6 +5,10 @@ export const Container = styled.div`
     margin: auto;
     margin-top: 30px;
     height: auto;
+
+    @media(max-width: 768px) {
+        font-size: 14px;
+    }
 `;
 
 export const ContactGrid = styled.div`

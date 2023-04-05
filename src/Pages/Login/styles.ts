@@ -20,14 +20,14 @@ export const LeftSide = styled.div`
     a img{
         height: 120px;
         width: 120px;
-        margin-top: 60px;
+        margin-top: 10px;
     }
 
     h1 {
         font-weight: 300;
         font-size: 32px;
         color: #2c3e50;
-        margin-top: 5px;
+        margin-top: 0px;
     }
 
     .register {
@@ -46,7 +46,7 @@ export const LeftSide = styled.div`
             flex-direction: column;
         }
 
-        p {
+        label {
             margin-top:10px;
         }
 
@@ -97,12 +97,13 @@ export const LeftSide = styled.div`
         }
 
         .spans-infos {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             
             p {
                 color: #262626;
                 text-decoration: underline;
                 font-size: 14px;
+                margin-top: 10px;
             }
         }
     }
@@ -139,7 +140,7 @@ export const Button = styled.button`
 
 export const RightSide = styled.div`
     display: flex;
-    height: auto;
+    min-height: 100vh;
     width: 50%;
     background-position: center;
     background-size: cover;
@@ -171,4 +172,33 @@ export const MobileImgArea = styled.div`
         position: absolute;
         top: 5;
     }
+`;
+
+export const FormFinishedContianer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin:auto;
+
+    h4 {
+        margin-top: 10px;
+    }
+    p {
+        margin-top: 10px;
+    }
+    button {
+        margin-top: 20px;
+        border: none;
+        height: 50px;
+        font-size: 17px;
+        background-color: #4169E1;
+        color: white;
+        cursor: pointer;
+        transition: all ease .7s;
+    
+        &:hover {
+            background-color: blue;
+        }
+    }
+    
 `

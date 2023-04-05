@@ -1,14 +1,11 @@
 import * as C from './styles';
 import {useState} from 'react';
 import IMGMAIN from '../../assets/bmwg02/IMG1.jpg';
-import IMG1 from '../../assets/bmwg02/IMG1.jpg';
 import IMGFIRST from '../../assets/bmwg02/IMG-1.jpg';
 import IMG2 from '../../assets/bmwg02/IMG2.jpg';
 import IMGTWO from '../../assets/bmwg02/IMG-2.jpg';
 import IMG3 from '../../assets/bmwg02/IMG3.jpg';
 import IMG4 from '../../assets/bmwg02/IMG4.jpg';
-import IMG5 from '../../assets/bmwg02/IMG5.jpg';
-import IMG6 from '../../assets/bmwg02/IMG6.jpg';
 import IMG7 from '../../assets/bmwg02/IMG7.jpg';
 import INTERIOR from '../../assets/bmwg02/INTERIOR.jpg';
 import INTERIOR1 from '../../assets/bmwg02/INTERIOR1.jpg';
@@ -21,7 +18,7 @@ import DRIVINGASSISTANT from '../../assets/bmwg02/DRIVINGASSISTANT.jpg';
 import XDRIVE from '../../assets/bmwg02/XDRIVE.jpg';
 import PERSONALIMG from '../../assets/bmwg02/PERSONALASSISTANT.jpg';
 import FILM from '../../assets/bmwg02/FILMINTRO.mp4';
-import PrinceAndSLoganArea from '../../Components/PriceAndSloganArea';
+import CarBannerHeader from '../../Components/CarBannerHeader';
 import useMediaQuery from '../../Hooks/MediaQuery';
 import ContactArea from '../../Components/ContactsArea';
 import Footer from '../../Components/Footer';
@@ -49,15 +46,6 @@ const BMWX4 = () => {
     description: 'Os contornos robustos por sobre as rodas com larga banda de rodagem, aliadas à linha do teto, semelhante ao de um cupê, enfatizam as características típicas do modelo X: potência, supremacia e esportividade. As estreitas luzes de LED traseiras alongam visualmente a traseira do carro, assim como a linha ascendente sobre os para-lamas traseiros. A frente é dominada pela grade curva da BMW com suas duas partes, equipada com faróis de LED estreitos, que conferem ao SUV cupê uma aparência esportiva e dinâmica. O sistema padrão de tração inteligente BMW xDrive nas quatro rodas permite um incomparável dinamismo ao dirigir, juntamente com a transmissão automática de 8 velocidades, a qual também se encontra disponível para todos os modelos BMW X4. Internamente, o veículo agora inclui telas sensíveis ao toque de maior tamanho, controle por meio de gestos e modernos sistemas para assistência ao motorista.', 
     fabrication: 'GASOLINA',
     resum: 'Foi com o X6 que a BMW inaugurou o segmento de SUVs cupês, em 2009. Seis anos depois, chegou a vez de o segundo membro dessa linhagem estrear no mercado brasileiro. O recém-lançado X4 segue os passoss passos de seu irmão maior, aliando o porte imponente dos utilitários esportivos com o design esportivo de um cupê – só que em embalagem mais compacta.',
-    ImagesTomodal: {
-       IMG1: IMG1,
-       IMG2: IMG2,
-       IMG3: IMG3,
-       IMG4: IMG4,
-       IMG5: IMG5,
-       IMG6: IMG6,
-       IMG7: IMG7
-    }
   }
 
   const SliderImgs = [
@@ -82,14 +70,14 @@ const BMWX4 = () => {
   return (
     <div>
        <main>
-        <PrinceAndSLoganArea 
-        backgroundIMG={IMGMAIN}
-        title="BMWG02"
-        subtitle="O BMW X4"
-        price="R$ 475.950"
-        fabrication="Gasolina"
+        <CarBannerHeader 
+          backgroundIMG={IMGMAIN}
+          title="BMWG02"
+          subtitle="O BMW X4"
+          price="R$ 475.950"
+          fabrication="Gasolina"
         />
-        <C.Container>
+        <C.Container80PctWidth>
           <motion.p 
             id='resum'
             initial="hidden"
@@ -185,18 +173,18 @@ const BMWX4 = () => {
                 <img src={IMGTWO}/>
               </motion.div>
             </C.ImageAndText>
-        </C.Container>
+        </C.Container80PctWidth>
 
         {/*INTERIOR DESIGN AREA*/}
-        <C.Container>
+        <C.Container80PctWidth>
           <h1 style={{marginBottom:'20px'}}>DESIGN INTERIOR DO BMW X4:</h1>
-        </C.Container>
+        </C.Container80PctWidth>
 
         <C.InteriorDesignIMG style={{backgroundImage: `url(${INTERIOR})`}}>
 
         </C.InteriorDesignIMG>
 
-        <C.Container>
+        <C.Container80PctWidth>
           {isDesktopScreen &&
             <C.InteriorDesignArea>
               <div className='IMGinterior-and-text'>
@@ -288,7 +276,7 @@ const BMWX4 = () => {
           para assistência ao motorista, como o Driving Assistant, aumentam ainda mais a sua experiência ao dirigir, 
           proporcionando mais segurança em seu BMW X4.
         </motion.p>
-        </C.Container>
+        </C.Container80PctWidth>
 
         <C.ServicesContainer>
         <Carousel breakPoints={breakPoints2}>
@@ -356,7 +344,7 @@ const BMWX4 = () => {
         </C.SliderIMGS>
 
         {/*BMW FINANCE SERVICES*/}
-        <C.Container>
+        <C.Container80PctWidth>
           <motion.h1
             className='left-side'
             initial="hidden"
@@ -438,7 +426,7 @@ const BMWX4 = () => {
                 <img src={IMG3}/>
               </motion.div>
             </C.ImageAndText>
-        </C.Container>
+        </C.Container80PctWidth>
 
         {/*CONTACT AREA*/}
         <ContactArea carTitle='BMWG02'/>
