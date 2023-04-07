@@ -4,6 +4,7 @@ import * as C from './styles';
 import { useAppSelector } from '../../Hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
 import { setIsVisible } from '../../Redux/Reducers/siteModalReducer';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const modalMainMsg = useAppSelector(state => state.modalMsg);
@@ -11,6 +12,10 @@ const Home = () => {
 
   const dispatchModalMsgToFalse = (e:React.MouseEvent<HTMLButtonElement>) => {
     dispatch(setIsVisible(false));
+  }
+
+  const setToTheTop = (e:React.MouseEvent<HTMLAnchorElement>) => {
+    window.scrollTo(0,0);
   }
 
   return (
@@ -35,9 +40,9 @@ const Home = () => {
           <C.MainContainerPage>
             <C.CarInfoContainer>
               <h1>{item.title}</h1>
-              <a href={`/${item.title}`}>
+              <Link to={`/${item.title}`} onClick={setToTheTop}>
                   Mais Informações
-              </a>
+              </Link>
             </C.CarInfoContainer>
             <C.ArrowDown>
               {index === 0 &&

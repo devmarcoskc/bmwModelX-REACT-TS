@@ -12,12 +12,12 @@ const Footer = () => {
     <C.Container>
         <C.MidiaArea>
             <C.MidiaContainer>
-                <a href=""><FiInstagram/></a>
-                <a href=""><FaFacebookF/></a>
-                <a href=""><BsTwitter/></a>
-                <a href=""><FaLinkedinIn/></a>
-                <a href=""><BsYoutube/></a>
-                <a href=""><SiWhatsapp/></a>
+                <Link to="/"><FiInstagram/></Link>
+                <Link to="/"><FaFacebookF/></Link>
+                <Link to="/"><BsTwitter/></Link>
+                <Link to="/"><FaLinkedinIn/></Link>
+                <Link to="/"><BsYoutube/></Link>
+                <Link to="/"><SiWhatsapp/></Link>
             </C.MidiaContainer>
         </C.MidiaArea>
         <C.BMWInfosContainer>
@@ -55,8 +55,8 @@ const Footer = () => {
                 <p>© BMW GROUP Brasil 2023</p>
                 <div className="policy-rules">
                     <Link to="/contactUs">Fale com a BMW</Link>
-                    <a href="">Política de Cookies</a>
-                    <a href="">Política de Privacidade</a>
+                    <Link to="/">Política de Cookies</Link>
+                    <Link to="/">Política de Privacidade</Link>
                 </div>
             </C.LastInfos>
         </C.FinalContainer>
