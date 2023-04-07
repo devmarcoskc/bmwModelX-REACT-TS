@@ -63,7 +63,7 @@ const RequestPage = () => {
     setFocus('number');
   } 
 
-  const handleStateUpdate = (e: any) => {
+  const handleStateUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedState(e.target.value);
   }
 
@@ -325,7 +325,10 @@ const RequestPage = () => {
             }
             {formFinished &&
               <C.FinishedContainer>
-                <h1>NENHUM DE SEUS DADOS FORAM ENVIADOS OU GUARDADOS!</h1>
+                <h1>NENHUM DE SEUS DADOS FORAM ENVIADOS OU SALVOS! Site foi feito apenas
+                para mostrar uma nova versão do original. Para mais informações, consulte
+                o site oficial!
+                </h1>
                 <Link to="/">Ir para início</Link>
               </C.FinishedContainer>
             }

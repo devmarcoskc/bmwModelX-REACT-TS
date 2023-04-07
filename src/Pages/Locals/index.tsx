@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Locals = () => {
   const [stateSelected, setStateSelected] = useState('RS');
 
-  const handleUpdateState = (e: any) => {
+  const handleUpdateState = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setStateSelected(e.target.value);
   }
 

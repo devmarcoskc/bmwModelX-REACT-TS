@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Width80PctContainer = styled.div`
+    height:auto;
+    max-width:80%;
+    margin:auto;
+`
 export const DeisgnTextContainer = styled.div`
     height: auto;
     max-width: 80%;

@@ -22,13 +22,13 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
   const LoginInfo = useAppSelector(state => state.loginUser);
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const handleLogout = (e:React.MouseEvent<HTMLSpanElement>) => {
       window.location.reload();
       dispatch(setIsLogged(false));
   }
 
   return (
-    <C.Header position={positionIsFixed}>
+    <C.Header positionToChange={positionIsFixed}>
       
         <C.Container borderBottomIsNeeded={borderBottom}>
             <C.ImgLogoArea>
@@ -53,7 +53,7 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
             </div>
             }
             {!isDesktopScreen &&
-              <C.MobileNavIcon display={isMenuToggled} colorChange={colorNeedToChange}>
+              <C.MobileNavIcon displayToChange={isMenuToggled} colorChange={colorNeedToChange}>
                 <FaBars onClick={() => setIsMenuToggled(!isMenuToggled)}/>
               </C.MobileNavIcon>
             }

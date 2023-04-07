@@ -2,7 +2,6 @@ import * as C from './styles';
 import ModalImg from '../Modal';
 import TitleAndText from '../TitleAndText';
 
-
 type Props = {
     title: string;
     resum: string;

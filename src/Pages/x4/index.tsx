@@ -11,18 +11,21 @@ import INTERIOR from '../../assets/bmwg02/INTERIOR.jpg';
 import INTERIOR1 from '../../assets/bmwg02/INTERIOR1.jpg';
 import INTERIOR2 from '../../assets/bmwg02/INTERIOR2.jpg';
 import INTERIOR3 from '../../assets/bmwg02/INTERIOR3.jpg';
+import INTERIOR4 from '../../assets/bmwg02/INTERIOR4.jpg';
+import INTERIOR5 from '../../assets/bmwg02/INTERIOR5.jpg';
 import sliderIMG1 from '../../assets/bmwg02/slider1.jpg';
 import sliderIMG2 from '../../assets/bmwg02/slider7.jpg';
-import AMAZONIMG from '../../assets/bmwg02/AMAZONALEXA.jpg';
-import DRIVINGASSISTANT from '../../assets/bmwg02/DRIVINGASSISTANT.jpg';
-import XDRIVE from '../../assets/bmwg02/XDRIVE.jpg';
-import PERSONALIMG from '../../assets/bmwg02/PERSONALASSISTANT.jpg';
+import SERVICES1 from '../../assets/bmwg02/AMAZONALEXA.jpg';
+import SERVICES4 from '../../assets/bmwg02/DRIVINGASSISTANT.jpg';
+import SERVICES3 from '../../assets/bmwg02/XDRIVE.jpg';
+import SERVICES2 from '../../assets/bmwg02/PERSONALASSISTANT.jpg';
+import SERVICES5 from '../../assets/bmwg02/PARKING.jpg';
 import FILM from '../../assets/bmwg02/FILMINTRO.mp4';
 import CarBannerHeader from '../../Components/CarBannerHeader';
+import BannerAndSlider from '../../Components/BannerAndSlider';
 import useMediaQuery from '../../Hooks/MediaQuery';
 import ContactArea from '../../Components/ContactsArea';
 import Footer from '../../Components/Footer';
-import Carousel from 'react-elastic-carousel';
 import { motion } from 'framer-motion';
 
 const BMWX4 = () => {
@@ -55,13 +58,29 @@ const BMWX4 = () => {
     {url: IMG4,}
   ]
   
-  const goToPrevious = () => {
+  const InteriorDesignInfos = [
+    {img: INTERIOR1, title: 'BMW Live Cockpit.'},
+    {img: INTERIOR2, title: 'Bancos M sport.'},
+    {img: INTERIOR3, title: 'Enfeite decorativo cromado nos controles.'},
+    {img: INTERIOR4, title: 'Espaço feito para o melhor conforto.'},
+    {img: INTERIOR5, title: 'Painel de controle totalmente inovador.'},
+  ]
+
+  const AssistanceServicesInfos = [
+    {img:SERVICES1, title: 'Integração com Amazon Alexa.'},
+    {img:SERVICES2, title: 'BMW Intelligent Personal Assistant.'},
+    {img:SERVICES3, title: 'BMW xDrive.'},
+    {img:SERVICES4, title: 'Driving Assistant.'},
+    {img:SERVICES5, title: 'Parking Assistant.'}
+  ]
+
+  const goToPrevious = (e:React.MouseEvent<HTMLDivElement>) => {
     const isFirstSlide = currentSlider === 0;
     const newIndex = isFirstSlide ? SliderImgs.length - 1 : currentSlider -1;
     setCurrentSlider(newIndex);
   }
 
-  const goToNext = () => {
+  const goToNext = (e:React.MouseEvent<HTMLDivElement>) => {
     const isLastSlide = currentSlider === SliderImgs.length -1
     const newIndex = isLastSlide ? 0 : currentSlider +1;
     setCurrentSlider(newIndex);
@@ -179,76 +198,9 @@ const BMWX4 = () => {
         <C.Container80PctWidth>
           <h1 style={{marginBottom:'20px'}}>DESIGN INTERIOR DO BMW X4:</h1>
         </C.Container80PctWidth>
-
-        <C.InteriorDesignIMG style={{backgroundImage: `url(${INTERIOR})`}}>
-
-        </C.InteriorDesignIMG>
+        <BannerAndSlider SlidesInfos={InteriorDesignInfos} IMGBG={INTERIOR} marginBottomIsNeed={false}/>
 
         <C.Container80PctWidth>
-          {isDesktopScreen &&
-            <C.InteriorDesignArea>
-              <div className='IMGinterior-and-text'>
-                  <img src={INTERIOR1}/>
-                  <h4>BMW Live Cockpit.</h4>
-                  <p>O BMW Live Cockpit, com função de navegação, 
-                    inclui um painel de instrumentos de 5,1 polegadas, 
-                    com controle por toque de alta resolução de 10,25 polegadas.
-                  </p>
-              </div>
-
-              <div className='IMGinterior-and-text'>
-                  <img src={INTERIOR2}/>
-                  <h4>Bancos M sport.</h4>
-                  <p>Os Bancos M sport com ajuste para o motorista e o passageiro dianteiro
-                    apresentam várias opções de ajuste manual, incluindo a posição longitudinal, o encosto e a angulação do banco.
-                    Adicionalmente, para o motorista é possível ajustar a largura do encosto.
-                  </p>
-              </div>
-
-              <div className='IMGinterior-and-text' style={{paddingRight: '15px'}}>
-                  <img src={INTERIOR3}/>
-                  <h4>Enfeite decorativo cromado nos controles.</h4>
-                  <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                    e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                    criam uma sensação de alta qualidade.
-                  </p>
-              </div>
-            </C.InteriorDesignArea>
-          }
-          
-          {!isDesktopScreen &&
-          <C.MobileDesignArea>
-            <Carousel breakPoints={breakPoints}>
-              <div className='IMGinterior-and-text-mobile'>
-                  <img src={INTERIOR1}/>
-                  <h4>BMW Live Cockpit.</h4>
-                  <p>O BMW Live Cockpit, com função de navegação, 
-                    inclui um painel de instrumentos de 5,1 polegadas, 
-                    com controle por toque de alta resolução de 10,25 polegadas.
-                  </p>
-              </div>
-
-              <div className='IMGinterior-and-text-mobile'>
-                  <img src={INTERIOR2}/>
-                  <h4>Bancos M sport.</h4>
-                  <p>Os Bancos M sport com ajuste para o motorista e o passageiro dianteiro
-                    apresentam várias opções de ajuste manual, incluindo a posição longitudinal, o encosto e a angulação do banco.
-                    Adicionalmente, para o motorista é possível ajustar a largura do encosto.
-                  </p>
-              </div>
-
-              <div className='IMGinterior-and-text-mobile'>
-                  <img src={INTERIOR3}/>
-                  <h4>Enfeite decorativo cromado nos controles.</h4>
-                  <p>Os enfeites cromados opcionais e exclusivos sobre os botões de controle dos vidros elétricos
-                    e os botões multifuncionais do volante, e também no painel de controle da porta e em seu botão de travamento
-                    criam uma sensação de alta qualidade.
-                  </p>
-              </div>
-            </Carousel>
-            </C.MobileDesignArea>
-          }
-
         {/*SERVICES AREA*/}
         <motion.h1
           initial="hidden"
@@ -277,52 +229,7 @@ const BMWX4 = () => {
           proporcionando mais segurança em seu BMW X4.
         </motion.p>
         </C.Container80PctWidth>
-
-        <C.ServicesContainer>
-        <Carousel breakPoints={breakPoints2}>
-          <C.ServicesAssistantArea>
-            <img src={AMAZONIMG}/>
-            <h4>Integração com Amazon Alexa.</h4>
-            <p>"Alexa, como está o tempo em São Paulo?" Com o 
-              Amazon Alexa Car Integration, se torna mais fácil 
-              utilizar o serviço de voz no interior do seu carrro, assim
-              como você está acostumado a fazer dentro de casa.
-            </p>
-          </C.ServicesAssistantArea>
-
-          <C.ServicesAssistantArea>
-            <img src={PERSONALIMG}/>
-            <h4>BMW Intelligent Personal Assistant.</h4>
-            <p>Comunique-se com o seu veículo utilizando o BMW Intelligent Personal Assistant.
-              Pronuncie comandos de voz naturais e opere várias funções em seu veículo. 
-              Ele também pode explicar tópicos sobre o seu veículo e
-              ajudá-lo a conhecer ainda melhor o seu BMW.
-            </p>
-          </C.ServicesAssistantArea>
-
-          <C.ServicesAssistantArea>
-            <img src={XDRIVE}/>
-            <h4>BMW xDrive.</h4>
-            <p>O sistema inteligente BMW xDrive, de tração nas quatro
-              rodas, distruibui de maneira suave e variável a força de
-              tração para as rodas dianteiras e traseiras, obtendo maior
-              tração, dinâmica ao dirigir e também segurança, sob
-              todas as condições.
-            </p>
-          </C.ServicesAssistantArea>
-
-          <C.ServicesAssistantArea>
-            <img src={DRIVINGASSISTANT}/>
-            <h4>Driving Assistant.</h4>
-            <p>O Driving Assistant oferece o melhor em termos de conforto e
-              segurança, durante as situações de trânsito que se mostram
-              críticas ou monótonas. Além do conteúdo do Assistente de
-              Direção, ele também inclui o Assistente nas Curvas e o
-              Assistente de Controle de Faixas, com funções estendidas.
-            </p>
-          </C.ServicesAssistantArea>
-        </Carousel>
-        </C.ServicesContainer>
+        <BannerAndSlider SlidesInfos={AssistanceServicesInfos} marginBottomIsNeed={true}/>
 
         {/*SLIDER IMAGES*/}
         <C.SliderIMGS>
@@ -437,4 +344,4 @@ const BMWX4 = () => {
   )
 }
 
-export default BMWX4
+export default BMWX4;

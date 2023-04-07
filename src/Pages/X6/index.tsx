@@ -28,25 +28,18 @@ import TECH1 from '../../assets/bmwe71/TECH1.jpg';
 import TECH2 from '../../assets/bmwe71/TECH2.jpg';
 import TECH3 from '../../assets/bmwe71/TECH3.jpg';
 import TECH4 from '../../assets/bmwe71/TECH4.jpg';
+import TECH5 from '../../assets/bmwe71/TECH5.jpg';
 import CarBannerHeader from '../../Components/CarBannerHeader';
 import InfoCarContainer from '../../Components/InfoCarContainer';
+import BannerAndSlider from '../../Components/BannerAndSlider';
 import ContactArea from '../../Components/ContactsArea';
 import Footer from '../../Components/Footer';
 import HighlightArea from '../../Components/HightlightsArea';
 import ResumArea from '../../Components/ResumCarText';
 import * as C from './styles';
 import TitleAndText from '../../Components/TitleAndText';
-import Carousel from 'react-elastic-carousel';
-
 
 const BMWX6 = () => {
-
-  const breakPoints = [
-    {width: 1, itemsToShow: 1},
-    {width: 500, itemsToShow: 1},
-    {width: 768, itemsToShow: 3.5},
-    {width: 1200, itemsToShow: 3.5},
-  ]
 
   const ItemToShow= {
     design: 'Atrai os olhares: o novo BMW X6 nem precisa se mover para se destacar na multidão. Ele o faz mesmo parado, graças às suas poderosas proporções e ao seu design expressivo, em combinação com os frisos Shadow Line brilhantes da linha BMW Individual. Após o pôr do sol é quando este aventureiro revela a sua verdadeira natureza. É nessa altura que a exclusiva grade BWM "Iconic Glow" torna visível a verdadeira natureza extrovertida do veículo. E quando as impressionantes rodas de liga leve de 22” começam a rodar, o sangue corre nas veias. Em contraste, o interior, graças aos materiais exclusivos e à atenção voltada ao condutor, oferece níveis equilibrados de emoção e de tranquilidade.',
@@ -97,6 +90,21 @@ const BMWX6 = () => {
     {img: HIMAGE6, title: 'PIONEIRO'},
   ]
 
+  const SlidesDesignInfo = [
+    {img: DESIGN1, title: 'Grade BMW Iconic Glow'},
+    {img: DESIGN2, title: 'Luz laser do BMW.'},
+    {img: DESIGN3, title: 'Luz de boas vindas.'},
+    {img: DESIGN4, title: 'Teto Solar panorâmico'},
+    {img: DESIGN5, title: 'Rodas em liga leve Doube-Spoke de 22"polegadas'}
+  ]
+  const SlidesServicesInfo = [
+    {img: TECH1, title: 'Conjunto do compartimento de bagagem.'},
+    {img: TECH2, title: 'Porta-copos com controle de temperatura.'},
+    {img: TECH3, title: 'BMW Live Cockpit Professional.'},
+    {img: TECH4, title: 'Banco traseiro Entertainment Professional.'},
+    {img: TECH5, title: 'Controle da experiência de condução.'},
+  ]
+
   return (
     <div>
        <CarBannerHeader
@@ -131,101 +139,21 @@ const BMWX6 = () => {
               Opções de equipamento como a grade frontal da BMW ‘Iconic Glow’, a luz laser em design X e o teto de vidro panorâmico Sky Lounge são detalhes adicionais distintos. 
               O interior é igualmente impressionante, com detalhes exclusivos de design, como o câmbio de vidro ‘CraftedClarity’, os bancos esportivos e a luz ambiente.'/>
           </C.DeisgnTextContainer>
-          
-          <C.DesignIMGArea style={{backgroundImage:`url(${DESIGNBG})`}}></C.DesignIMGArea>
-          <C.HighlightsDesign>
-            <Carousel breakPoints={breakPoints}>
-              <div className='design-and-text'>
-                <img src={DESIGN1}/>
-                <h4>Grade BMW Iconic Glow</h4>
-                <p>Pellentesque habitant morbi tristique 
-                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
-                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
-                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
-                </p>
-              </div>
-                <div className='design-and-text'>
-                  <img src={DESIGN2}/>
-                  <h4>Luz laser do BMW.</h4>
-                  <p>Pellentesque habitant morbi tristique 
-                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
-                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
-                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
-                  </p>
-                </div>
-              <div className='design-and-text'>
-                <img src={DESIGN3}/>
-                <h4>Luz de boas vindas.</h4>
-                <p>Pellentesque habitant morbi tristique 
-                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
-                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
-                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
-                </p>
-              </div>
-              <div className='design-and-text'>
-                <img src={DESIGN4}/>
-                <h4>Teto Solar panorâmico</h4>
-                  <p>Pellentesque habitant morbi tristique 
-                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
-                  ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. 
-                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo
-                  </p>
-              </div>
-              <div className='design-and-text' style={{paddingRight: '15px'}}>
-                  <img src={DESIGN5}/>
-                  <h4>Rodas em liga leve Doube-Spoke de 22"polegadas</h4>
-                  <p>Pellentesque habitant morbi tristique 
-                  senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
-                  ultricies eget, tempor sit amet, ante. 
-                  </p>
-              </div>
-            </Carousel>
-          </C.HighlightsDesign>
+
+          <BannerAndSlider IMGBG={DESIGNBG} SlidesInfos={SlidesDesignInfo} marginBottomIsNeed={false}/>
 
           {/*TECHNOLOGY AREA*/}
-          <C.TechnologyContainer>
-            <TitleAndText title='AS TECNOLOGIAS INOVADORAS DO NOVO BMW X6.' text='No BMW X6, dirigir parece mais fácil: as várias tecnologias e recursos ultramodernos permitem o máximo conforto possível em cada viagem. 
-            Recursos inovadores, como os suportes para copos com controle de temperatura ou o impressionante Control Display, um monitor de controle de 12,3” e sensível ao toque, ajudam você em todas as situações. 
+          <C.Width80PctContainer>
+            <TitleAndText 
+            title='AS TECNOLOGIAS INOVADORAS DO NOVO BMW X6.' text='No BMW X6, dirigir parece mais fácil: as várias tecnologias e 
+            recursos ultramodernos permitem o máximo conforto possível em cada viagem. 
+            Recursos inovadores, como os suportes para copos com controle de temperatura ou o impressionante Control Display, um monitor de controle de 12,3” 
+            e sensível ao toque, ajudam você em todas as situações. 
             E, graças aos recursos do banco traseiro Entertainment Professional, assentos confortáveis com função de massagem e 
-            ventilação ao lado do pacote Ambient Air, é possível ter o máximo entretenimento e descanso.'/>
-          </C.TechnologyContainer>
-
-            <C.TechnologySlider>
-              <Carousel breakPoints={breakPoints}>
-                <div className='techArea'>
-                  <img src={TECH1}/>
-                  <h4>Conjunto do compartimento de bagagem.</h4>
-                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
-                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
-                  </p>
-                </div>
-
-                <div className='techArea'>
-                  <img src={TECH2}/>
-                  <h4>Porta-copos com controle de temperatura.</h4>
-                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
-                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
-                  </p>
-                </div>
-
-                <div className='techArea' style={{paddingRight: '15px'}}>
-                  <img src={TECH3}/>
-                  <h4>BMW Live Cockpit Professional.</h4>
-                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
-                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
-                  </p>
-                </div>
-
-                <div className='techArea' style={{paddingRight: '15px'}}>
-                  <img src={TECH4}/>
-                  <h4>Banco traseiro Entertainment Professional.</h4>
-                    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, 
-                    euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
-                    </p>
-                </div>
-              </Carousel>
-            </C.TechnologySlider>
-            
+            ventilação ao lado do pacote Ambient Air, é possível ter o máximo entretenimento e descanso.'
+            />
+          </C.Width80PctContainer>
+          <BannerAndSlider SlidesInfos={SlidesServicesInfo} marginBottomIsNeed={true}/>
         </div>
       </InfoCarContainer>
 

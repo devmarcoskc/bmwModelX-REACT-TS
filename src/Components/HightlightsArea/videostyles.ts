@@ -37,7 +37,7 @@ export const Container = styled.div`
         background-color: gray;
         cursor: pointer;
         border: none;
-        color: white;
+        color: black;
     }
 
 `

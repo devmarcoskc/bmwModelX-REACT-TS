@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 type MobileProps = {
     colorChange: boolean;
-    display: boolean;
+    displayToChange: boolean;
 }
 
-export const Header = styled.header<{position:boolean}>`
+export const Header = styled.header<{positionToChange:boolean}>`
     height: 13vh;
-    position: ${props => props.position ? 'fixed' : 'static'};
+    position: ${props => props.positionToChange ? 'fixed' : 'static'};
     top:0;
     width:100%;
     z-index: 150;
@@ -79,7 +79,7 @@ export const NavsArea = styled.nav<{colorChange:boolean}>`
 
 export const MobileNavIcon = styled.div<MobileProps>`
     svg{
-        display: ${props => props.display ? 'none':'flex'};
+        display: ${props => props.displayToChange ? 'none':'flex'};
         height: 25px;
         width: 25px;
         color: ${props => props.colorChange ? 'grey' : 'white'};

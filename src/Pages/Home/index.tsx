@@ -1,6 +1,5 @@
 import Header from '../../Components/Header';
 import { ItensData } from '../../Data/itemData';
-import { useState } from 'react';
 import * as C from './styles';
 import { useAppSelector } from '../../Hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
@@ -10,7 +9,7 @@ const Home = () => {
   const modalMainMsg = useAppSelector(state => state.modalMsg);
   const dispatch = useDispatch();
 
-  const dispatchModalMsgToFalse = () => {
+  const dispatchModalMsgToFalse = (e:React.MouseEvent<HTMLButtonElement>) => {
     dispatch(setIsVisible(false));
   }
 
