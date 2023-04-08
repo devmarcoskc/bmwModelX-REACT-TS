@@ -30,18 +30,21 @@ export const Arrowleft = styled.div<Props>`
     position: absolute;
     top: 40%;
     left: 5px;
-    font-size: 30px;
-    color: white;
+    color: gray;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 20px;
-    background-color:gray;
+    border-radius: 10px;
     opacity: 1;
     z-index: 50;
     display: ${props => props.arrowsNeedToHidde === 0 ? 'none' : 'flex'};
 
+    svg {
+        height: 50px;
+        width: 50px;
+        background-color: white;
+    }
+
     @media(max-width: 768px) {
-        left: 10px;
+        left: 0px;
     }
 `;
 
@@ -49,18 +52,21 @@ export const RightArrow = styled.div<Props>`
     position: absolute;
     top: 40%;
     right: 7px;
-    font-size: 30px;
-    color: white;
+    color: gray;
     cursor: pointer;
     opacity: 1;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: gray;
+    border-radius: 10px;
     z-index: 50;
     display: ${props => props.arrowsNeedToHidde === 2 ? 'none' : 'flex'};
 
+    svg {
+        height: 50px;
+        width: 50px;
+        background-color: white;
+    }
+
     @media(max-width: 768px) {
-        right:5px;
+        right:0px;
         display: ${props => props.arrowsNeedToHidde === 5 ? 'none' : 'flex'};
     }
 `

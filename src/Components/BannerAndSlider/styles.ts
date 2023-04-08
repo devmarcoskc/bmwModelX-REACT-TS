@@ -40,10 +40,15 @@ export const Arrowleft = styled.div<Props>`
         height: 50px;
         width: 50px;
         background-color: white;
+
+        @media(max-width: 768px) {
+            height: 40px;
+            width: 40px;
+        }
     }
 
     @media(max-width: 768px) {
-        top: ${props => props.marginNeed ? '20%' : '70%'};
+        top: ${props => props.marginNeed ? '20%' : '60%'};
         left: 10px;
     }
 `;
@@ -62,10 +67,15 @@ export const RightArrow = styled.div<Props>`
         height: 50px;
         width: 50px;
         background-color: white;
+
+        @media(max-width: 768px) {
+            height: 40px;
+            width: 40px;
+        }
     }
 
     @media(max-width: 768px) {
-        top: ${props => props.marginNeed ? '20%' : '70%'};
+        top: ${props => props.marginNeed ? '20%' : '60%'};
         right:10px;
         display: ${props => props.arrowsNeedToHidde === 4 ? 'none' : 'flex'};
     }
