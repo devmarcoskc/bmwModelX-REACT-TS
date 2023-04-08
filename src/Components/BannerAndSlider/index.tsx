@@ -1,7 +1,8 @@
 import * as C from './styles';
 import { useState } from 'react';
 import useMediaQuery from '../../Hooks/MediaQuery';
-
+import {BsFillArrowRightSquareFill} from 'react-icons/bs';
+import {BsFillArrowLeftSquareFill} from 'react-icons/bs';
 
 type Props = {
      IMGBG?: string;
@@ -53,14 +54,14 @@ const BannerAndSlider = ({SlidesInfos, IMGBG, marginBottomIsNeed}: Props) => {
                 marginNeed={marginBottomIsNeed}
                 arrowsNeedToHidde={currentSlide}
             >
-                🡄
+                <BsFillArrowLeftSquareFill/>
             </C.Arrowleft>
             <C.RightArrow
                 onClick={goToNextSlide}
                 marginNeed={marginBottomIsNeed}
                 arrowsNeedToHidde={currentSlide}
             >
-                🡆
+                <BsFillArrowRightSquareFill/>
             </C.RightArrow>
 
             {isDesktopScreen &&

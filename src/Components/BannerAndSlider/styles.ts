@@ -29,15 +29,18 @@ export const Arrowleft = styled.div<Props>`
     position: absolute;
     top: ${props => props.marginNeed ? '30%' : '65%'};
     transform: translate(0, 50%);
-    left: 5%;
-    font-size: 30px;
-    color: white;
+    left: 5.5%;
+    color: gray;
+    border-radius: 10px;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 20px;
-    background-color:gray;
     opacity: 1;
     display: ${props => props.arrowsNeedToHidde === 0 ? 'none' : 'flex'};
+
+    svg {
+        height: 50px;
+        width: 50px;
+        background-color: white;
+    }
 
     @media(max-width: 768px) {
         top: ${props => props.marginNeed ? '20%' : '70%'};
@@ -49,14 +52,17 @@ export const RightArrow = styled.div<Props>`
     top: ${props => props.marginNeed ? '30%' : '65%'};
     transform: translate(0, 50%);
     right: 5%;
-    font-size: 30px;
-    color: white;
+    color: gray;
     cursor: pointer;
     opacity: 1;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: gray;
+    border-radius: 10px;
     display: ${props => props.arrowsNeedToHidde === 2 ? 'none' : 'flex'};
+
+    svg {
+        height: 50px;
+        width: 50px;
+        background-color: white;
+    }
 
     @media(max-width: 768px) {
         top: ${props => props.marginNeed ? '20%' : '70%'};

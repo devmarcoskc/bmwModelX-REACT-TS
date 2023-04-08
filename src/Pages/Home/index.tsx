@@ -5,6 +5,8 @@ import { useAppSelector } from '../../Hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
 import { setIsVisible } from '../../Redux/Reducers/siteModalReducer';
 import { Link } from 'react-router-dom';
+import {MdOutlineKeyboardDoubleArrowDown} from 'react-icons/md';
+import {MdOutlineKeyboardDoubleArrowUp} from 'react-icons/md';
 
 const Home = () => {
   const modalMainMsg = useAppSelector(state => state.modalMsg);
@@ -47,17 +49,17 @@ const Home = () => {
             <C.ArrowDown>
               {index === 0 &&
                   <a href='#BMWG 02' className='arrow-down-home'>
-                   ⮟
+                   <MdOutlineKeyboardDoubleArrowDown/>
                   </a>
                 }
                 {index === 1 &&
                   <a href='#BMWE 84' className='arrow-down-home'>
-                  ⮟
+                    <MdOutlineKeyboardDoubleArrowDown/>
                   </a>
                 }
                 {index === 2 &&
                   <a href='#BMWE 71' className='arrow-down-home'>
-                  ⮝
+                    <MdOutlineKeyboardDoubleArrowUp/>
                   </a>
                 }
             </C.ArrowDown>

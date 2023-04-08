@@ -6,7 +6,7 @@ export const ResumContainer = styled.div`
     background-position: center;
     background-size: cover;
 
-    @media(max-width: 380px) {
+    @media(max-width: 390px) {
         height: 90vh;
     }
 `;
