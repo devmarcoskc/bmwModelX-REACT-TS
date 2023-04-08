@@ -107,4 +107,14 @@ export const ModalTitleAndResum = styled.div`
     p {
         color: white;
     }
+
+    @media(max-width:768px) {
+        h1 {
+            font-size: 22px;
+        }
+        p {
+            max-width: 90%;
+            font-size: 13px;
+        }
+    }
 `;

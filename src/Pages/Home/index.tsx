@@ -24,7 +24,7 @@ const Home = () => {
     <div>
       {modalMainMsg.isSiteVisible &&
         <C.ModalMsgArea>
-          <h1>Este site foi criado com o inuito de estudos, para mostrar 
+          <h1>Este site foi criado com o intuito de estudos, para mostrar 
           uma nova versão do site da BMW para os modelos da linha X.
           Portanto, nenhuma de suas informações serão enviadas, ou armazenadas
           em nenhum lugar, somente na sua própria Local Storage de seu Navegador.
