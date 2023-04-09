@@ -114,7 +114,7 @@ export const CarInfoContainer = styled.div`
 export const ArrowDown = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 30%;
+    margin-top: 27%;
 
     .arrow-down-home {
         font-size: 60px;
