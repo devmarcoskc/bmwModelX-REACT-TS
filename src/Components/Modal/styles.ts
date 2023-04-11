@@ -6,12 +6,19 @@ export const Container = styled.div`
 
     img {
         width: 100%;
+        scale: 0.98;
         margin-top: 15px;
         cursor: pointer;
         transition: all ease 0.7s;
 
         &:hover {
-            scale: 1.018;
+            scale: 1;
+        }
+
+        @media(max-width:768px) {
+            scale: 1;
+            margin-left: 0px !important;
+            margin-top: 10px !important;
         }
     }
 `;

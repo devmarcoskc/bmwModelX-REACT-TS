@@ -27,6 +27,8 @@ export const GridDesignArea = styled.div`
     }
 `;
 
+
+
 export const LastImagesArea = styled.div`
     heigth: auto;
     width: 100%;
@@ -35,6 +37,7 @@ export const LastImagesArea = styled.div`
     grid-template-columns: repeat(2, 1fr);
 
     @media(max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
+
 `;

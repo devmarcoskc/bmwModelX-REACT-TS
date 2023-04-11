@@ -53,7 +53,11 @@ export const Arrowleft = styled.div<Props>`
     @media(max-width: 768px) {
         top: ${props => props.marginNeed ? '6.5%' : '53.5%'};
     }
+    @media(max-width: 380px) {
+        top: ${props => props.marginNeed ? '6.5%' : '45.5%'};
+    }
 `;
+
 export const RightArrow = styled.div<Props>`
     position: absolute;
     top: ${props => props.marginNeed ? '2%' : '55%'};
@@ -83,6 +87,10 @@ export const RightArrow = styled.div<Props>`
     @media(max-width: 768px) {
         top: ${props => props.marginNeed ? '6.5%' : '53.5%'};
         display: ${props => props.arrowsNeedToHidde === 4 ? 'none' : 'flex'};
+    }
+    
+    @media(max-width: 380px) {
+        top: ${props => props.marginNeed ? '6.5%' : '45.5%'};
     }
 `
 

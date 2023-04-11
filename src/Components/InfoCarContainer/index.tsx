@@ -41,7 +41,7 @@ const InfoCarContainer = ({design, imagesToModal, modalTitles, description, page
     <main>
         <C.InfoCarContainer>
          
-            <C.GridDesignArea>
+            
               <TitleAndText title={`O SEU DESIGN:`} text={design}/>
               <ModalImg 
                 imagesToModal={
@@ -56,6 +56,7 @@ const InfoCarContainer = ({design, imagesToModal, modalTitles, description, page
                   ] 
                 } 
               />
+              <C.GridDesignArea>
               <ModalImg 
                 imagesToModal={
                   [
@@ -90,7 +91,7 @@ const InfoCarContainer = ({design, imagesToModal, modalTitles, description, page
           
           <C.InfoCarContainer>
             <TitleAndText title={pageSubTitle} text={description}/>
-              <C.LastImagesArea>
+            <C.LastImagesArea>
                 <ModalImg 
                   imagesToModal={
                     [
@@ -131,6 +132,7 @@ const InfoCarContainer = ({design, imagesToModal, modalTitles, description, page
                     ]
                   } 
                 />
+                
                 <ModalImg 
                   imagesToModal={
                     [
