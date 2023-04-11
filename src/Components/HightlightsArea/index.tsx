@@ -3,8 +3,8 @@ import * as C from './styles';
 import { useState } from 'react';
 import VideoArea from './Video';
 import useMediaQuery from '../../Hooks/MediaQuery';
-import {BsFillArrowRightSquareFill} from 'react-icons/bs';
-import {BsFillArrowLeftSquareFill} from 'react-icons/bs';
+import {IoIosArrowForward} from 'react-icons/io';
+import {IoIosArrowBack} from 'react-icons/io';
 
 
 type Props = {
@@ -77,13 +77,13 @@ const HighlightArea = ({VideosToModal, ImagesAndTitle}: Props) => {
                     onClick={goToPreviousSlide}
                     arrowsNeedToHidde={currentSlide}
                 >
-                    <BsFillArrowLeftSquareFill/>
+                    <IoIosArrowBack/>
                 </C.Arrowleft>
                 <C.RightArrow 
                     onClick={goToNextSlide}
                     arrowsNeedToHidde={currentSlide}
                 >
-                    <BsFillArrowRightSquareFill/>
+                    <IoIosArrowForward/>
                 </C.RightArrow>
                 <C.SlidersContainer>
                 {isDesktopScreen &&

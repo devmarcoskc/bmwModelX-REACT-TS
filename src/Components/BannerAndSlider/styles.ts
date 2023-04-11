@@ -27,56 +27,61 @@ export const ContainerBG = styled.div`
 
 export const Arrowleft = styled.div<Props>`
     position: absolute;
-    top: ${props => props.marginNeed ? '30%' : '65%'};
-    transform: translate(0, 50%);
-    left: 5.5%;
-    color: gray;
-    border-radius: 10px;
+    top: ${props => props.marginNeed ? '2%' : '55%'};
+    left: 7.5%;
+    height: 450px;
+    width: 70px;
+    background: linear-gradient(to right,#fff,rgba(255,255,255,.001) 100%);
     cursor: pointer;
     opacity: 1;
     display: ${props => props.arrowsNeedToHidde === 0 ? 'none' : 'flex'};
 
     svg {
-        height: 50px;
-        width: 50px;
-        background-color: white;
+        height: 40px;
+        width: 40px;
+        color: gray;
+        background-color: rgba(255,255,255,.8);
+        margin-top: 100px;
+        transition: all ease .5s;
+        margin-left: 20px;
 
-        @media(max-width: 768px) {
-            height: 40px;
-            width: 40px;
+        &:hover {
+            background-color: rgba(255,255,255,1);
         }
     }
 
     @media(max-width: 768px) {
-        top: ${props => props.marginNeed ? '20%' : '60%'};
-        left: 10px;
+        top: ${props => props.marginNeed ? '6.5%' : '53.5%'};
     }
 `;
 export const RightArrow = styled.div<Props>`
     position: absolute;
-    top: ${props => props.marginNeed ? '30%' : '65%'};
-    transform: translate(0, 50%);
-    right: 5%;
-    color: gray;
+    top: ${props => props.marginNeed ? '2%' : '55%'};
+    right: 7.5%;
+    height: 450px;
+    width: 70px;
+    background: linear-gradient(to left,#fff,rgba(255,255,255,.001) 100%);
     cursor: pointer;
     opacity: 1;
-    border-radius: 10px;
     display: ${props => props.arrowsNeedToHidde === 2 ? 'none' : 'flex'};
+    
 
     svg {
-        height: 50px;
-        width: 50px;
-        background-color: white;
+        height: 40px;
+        width: 40px;
+        color: gray;
+        background-color: rgba(255,255,255,.8);
+        margin-top: 100px;
+        transition: all ease .5s;
 
-        @media(max-width: 768px) {
-            height: 40px;
-            width: 40px;
+        &:hover {
+            background-color: rgba(255,255,255,1);
         }
+
     }
 
     @media(max-width: 768px) {
-        top: ${props => props.marginNeed ? '20%' : '60%'};
-        right:10px;
+        top: ${props => props.marginNeed ? '6.5%' : '53.5%'};
         display: ${props => props.arrowsNeedToHidde === 4 ? 'none' : 'flex'};
     }
 `
@@ -156,5 +161,9 @@ export const Slide = styled.div`
 
     @media(max-width: 768px) {
         width: 300px;
+
+        h4 {
+            font-size: 18px;
+        }
     }
 `

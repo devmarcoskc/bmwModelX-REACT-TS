@@ -15,7 +15,7 @@ const Home = () => {
   const dispatchModalMsgToFalse = (e:React.MouseEvent<HTMLButtonElement>) => {
     dispatch(setIsVisible(false));
   }
-
+  
   const setToTheTop = (e:React.MouseEvent<HTMLAnchorElement>) => {
     window.scrollTo(0,0);
   }

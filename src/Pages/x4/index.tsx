@@ -27,6 +27,8 @@ import useMediaQuery from '../../Hooks/MediaQuery';
 import ContactArea from '../../Components/ContactsArea';
 import Footer from '../../Components/Footer';
 import { motion } from 'framer-motion';
+import {IoIosArrowForward} from 'react-icons/io';
+import {IoIosArrowBack} from 'react-icons/io';
 
 const BMWX4 = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
@@ -234,10 +236,10 @@ const BMWX4 = () => {
         {/*SLIDER IMAGES*/}
         <C.SliderIMGS>
           <div className='left-arrow-slider' onClick={goToPrevious}>
-            ❰
+            <IoIosArrowBack/>
           </div>
           <div className='right-arrow-slider' onClick={goToNext}>
-            ❱
+            <IoIosArrowForward/>
           </div>
           
           <C.Slider margin={currentSlider}>

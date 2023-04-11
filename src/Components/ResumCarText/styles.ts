@@ -19,6 +19,7 @@ export const ResumArea = styled.div `
     .highlights-manual {
         font-weight: bold;
         margin-top:0px !important;
+        font-size: 20px;
     }
 
     @media(max-width: 768px) {

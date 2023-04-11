@@ -28,19 +28,28 @@ export const SlidersContainer = styled.div`
 `
 export const Arrowleft = styled.div<Props>`
     position: absolute;
-    top: 40%;
-    left: 5px;
-    color: gray;
+    top: 0;
+    left: 2.5%;
     cursor: pointer;
-    border-radius: 10px;
     opacity: 1;
     z-index: 50;
+    height: 450px;
+    width: 70px;
+    align-items: center;
+    font-size: 60px;
+    background: linear-gradient(to right,#fff,rgba(255,255,255,.001) 100%);
     display: ${props => props.arrowsNeedToHidde === 0 ? 'none' : 'flex'};
 
     svg {
-        height: 50px;
-        width: 50px;
-        background-color: white;
+        height: 40px;
+        width: 40px;
+        color: gray;
+        background-color: rgba(255,255,255,.7);
+        margin-left: 20px;
+
+        &:hover {
+            background-color: rgba(255,255,255,.9);
+        }
     }
 
     @media(max-width: 768px) {
@@ -50,19 +59,27 @@ export const Arrowleft = styled.div<Props>`
 
 export const RightArrow = styled.div<Props>`
     position: absolute;
-    top: 40%;
-    right: 7px;
-    color: gray;
+    top: 0%;
+    right: 2.5%;
     cursor: pointer;
     opacity: 1;
-    border-radius: 10px;
+    height: 450px;
+    width: 70px;
+    align-items: center;
+    font-size: 60px;
+    background: linear-gradient(to left,#fff,rgba(255,255,255,.001) 100%);
     z-index: 50;
     display: ${props => props.arrowsNeedToHidde === 2 ? 'none' : 'flex'};
 
     svg {
-        height: 50px;
-        width: 50px;
-        background-color: white;
+        height: 40px;
+        width: 40px;
+        color: gray;
+        background-color: rgba(255,255,255,.7);
+
+        &:hover {
+            background-color: rgba(255,255,255,.9);
+        }
     }
 
     @media(max-width: 768px) {
@@ -81,7 +98,7 @@ export const Slider = styled.div<Props>`
             case 0:
                 return "0px";
             case 1:
-                return "-250px";
+                return "-265px";
             case 2: 
                 return "-355px";
         }

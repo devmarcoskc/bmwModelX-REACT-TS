@@ -287,30 +287,44 @@ export const SliderIMGS = styled.div`
     .left-arrow-slider {
         position: absolute;
         top: 30%;
-        transform: translate(0, 50%);
         left: 32px;
-        font-size: 55px;
         color: white;
         z-index: 20;
-        padding: 7px;
-        border-radius: 5px;
+        font-size: 55px;
         background-color: gray;
         cursor: pointer;
         opacity: 0.8;
+        transition: all ease .5s;
+
+        svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
     }
     .right-arrow-slider {
         position: absolute;
         top: 30%;
-        transform: translate(0, 50%);
         right: 32px;
         font-size: 55px;
         color: white;
         z-index: 20;
-        padding: 7px;
-        border-radius: 5px;
         background-color: gray;
         cursor: pointer;
         opacity: 0.8;
+        transition: all ease .5s;
+
+        svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     @media(max-width: 768px) {
