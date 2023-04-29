@@ -1,8 +1,13 @@
-export const checkIfUserExists = (email: string, password: string) => {
-    let EmailToCheck = localStorage.getItem('email');
-    let PasswordToCheck = localStorage.getItem('password');
+import { RegisterType } from "../Types/FormRegisterType";
 
-    if(email === EmailToCheck && password === PasswordToCheck) {
-        return true;
-    }
+export const checkIfUserExists = (email: string, password: string) => {
+    let UsersToCheck:RegisterType[] = JSON.parse(localStorage.getItem('UsersBmw') || '[]');
+
+    let CheckingIfUserExistis = UsersToCheck.some((Users) => {
+        if(Users.email === email && Users.password === password) {
+            return true;
+        }
+    });
+    
+    return CheckingIfUserExistis
 }
