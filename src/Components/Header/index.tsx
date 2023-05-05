@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import * as C from './styled';
 import Logo from '../../assets/bmwlogo.png';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,26 @@ type Props = {
 
 const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
   const isDesktopScreen = useMediaQuery("(min-width: 1060px)");
-  const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+
+  const refMobile = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if(!isDesktopScreen) {
+      let handler = (e:any) => {
+        if(!refMobile.current?.contains(e.target)) {
+          setIsMenuToggled(false);
+        }
+      };
+      document.addEventListener('mousedown', handler);
+
+      return() => {
+        document.removeEventListener('mousedown', handler);
+      }
+    }
+
+
+  }, []);
 
   const LoginInfo = useAppSelector(state => state.loginUser);
   const dispatch = useDispatch();
@@ -59,8 +78,8 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
             }
         </C.Container>
 
-        {!isDesktopScreen && isMenuToggled &&
-          <C.NavMenuSideBar>
+        {!isDesktopScreen && 
+          <C.NavMenuSideBar ref={refMobile} changeMargin={isMenuToggled}>
             <C.SideBarContainer>
               <FiX onClick={() => setIsMenuToggled(false)}/>
                 <Link to="/">Nossos Modelos</Link>

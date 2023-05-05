@@ -87,11 +87,12 @@ export const MobileNavIcon = styled.div<MobileProps>`
     }
 `;
 
-export const NavMenuSideBar = styled.nav`
+export const NavMenuSideBar = styled.nav<{changeMargin:boolean}>`
     height: 100vh;
     position: fixed;
     top:0;
-    right: 0;
+    transition: all ease .8s;
+    right: ${props => props.changeMargin ? '0' : '-80vw'};
     width:70vw;
     background-color:gray;
     opacity: 0.98;
