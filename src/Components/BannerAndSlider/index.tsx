@@ -4,6 +4,7 @@ import useMediaQuery from '../../Hooks/MediaQuery';
 import {IoIosArrowForward} from 'react-icons/io';
 import {IoIosArrowBack} from 'react-icons/io';
 
+
 type Props = {
      IMGBG?: string;
      SlidesInfos: {
@@ -44,11 +45,23 @@ const BannerAndSlider = ({SlidesInfos, IMGBG, marginBottomIsNeed}: Props) => {
     <div>
     <C.PageContainer arrowsNeedToHidde={currentSlide}>
         {IMGBG !== undefined &&
-            <C.ContainerBG style={{backgroundImage:`url(${IMGBG})`}}>
+            <C.ContainerBG 
+                style={{backgroundImage:`url(${IMGBG})`}}
+            >
             </C.ContainerBG>
         }
 
-        <C.SliderArea marginNeed={marginBottomIsNeed}>
+        <C.SliderArea 
+            marginNeed={marginBottomIsNeed}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{once: true, amount: 1}}
+            transition={{delay:0.2, duration: 1}}
+            variants={{
+                hidden: {width: '0%'},
+                visible: {width: '100%'}
+            }} 
+        >
             <C.Arrowleft 
                 onClick={goToPreviousSlide} 
                 marginNeed={marginBottomIsNeed}

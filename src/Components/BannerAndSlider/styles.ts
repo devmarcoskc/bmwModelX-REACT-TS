@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 type Props = {
     currentSlide?: number;
@@ -11,7 +12,7 @@ export const PageContainer = styled.div<Props>`
     margin-bottom: 20px;
 `
 
-export const ContainerBG = styled.div`
+export const ContainerBG = styled(motion.div)`
     margin-top: 20px;
     height: 90vh;
     width: 100%;
@@ -94,7 +95,7 @@ export const RightArrow = styled.div<Props>`
     }
 `
 
-export const SliderArea = styled.div<Props>`
+export const SliderArea = styled(motion.div)<Props>`
     max-width: 85%;
     overflow: hidden;
     height: auto;

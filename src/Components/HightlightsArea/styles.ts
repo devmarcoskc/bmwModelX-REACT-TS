@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 type Props = {
     arrowsNeedToHidde?: number;
     marginToLeft?: number;
 }
 
-export const container = styled.div`
+export const container = styled(motion.div)`
     height: auto;
     max-width: 95%;
     margin: auto;
