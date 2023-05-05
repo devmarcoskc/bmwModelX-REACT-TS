@@ -35,7 +35,6 @@ const Header = ({positionIsFixed, colorNeedToChange, borderBottom}: Props) => {
       }
     }
 
-
   }, []);
 
   const LoginInfo = useAppSelector(state => state.loginUser);

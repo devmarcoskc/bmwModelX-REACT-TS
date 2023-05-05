@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-export const ContainerSlider = styled.div`
-    height: 100vh;
-    width: 100%;
+type Props = {
+    opacityControl?: number;
+    margin?:number
+
+}
+
+export const ContainerSlider = styled.div<Props>`
+    height: ${props => props.opacityControl === 1 ? '100vh' : '0vh'};
+    width: ${props => props.opacityControl === 1 ? '100%' : '0%'};
     overflow: hidden;
     position: fixed;
     z-index: 100;
@@ -10,6 +16,8 @@ export const ContainerSlider = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
+    transition: all ease 0.8s;
+    opacity: ${props => props.opacityControl === 1 ? '1' : '0'};
 
     button {
         display: flex;
@@ -18,7 +26,7 @@ export const ContainerSlider = styled.div`
         justify-content: center;
         position: fixed;
         border: none;
-        right:0;
+        left:0;
         heigth: 80px;
         padding: 20px 20px;
         width: 80px;
@@ -57,9 +65,9 @@ export const ContainerSlider = styled.div`
     }
 `;
 
-export const slides = styled.div<{margin?:number}>`
+export const slides = styled.div<Props>`
     height: 700vh;
-    transition: all ease 1s;
+    transition: all ease .8s;
     width:100%;
     margin-top: ${(props) => {
         switch(props.margin) {
@@ -81,12 +89,13 @@ export const slides = styled.div<{margin?:number}>`
     }};
 `
 
-export const Slider = styled.div`
+export const Slider = styled.div<Props>`
     display:flex;
     width:100vw;
     height:100vh;
     background-position: center;
     background-size: cover;
+    transition: all ease 0.8s;
 
     @media(max-width: 768px) {
         background-position: -580px;

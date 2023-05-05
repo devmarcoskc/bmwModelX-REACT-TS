@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    height: 100vh;
+type Props = {
+    opacityControl: number;
+}
+
+export const Container = styled.div<Props>`
+    height: 100%;
     width: 100%;
     position: fixed;
     top: 0;
@@ -11,6 +15,8 @@ export const Container = styled.div`
     background-color: black;
     z-index: 120;
     overflow: hidden;
+    transition: all ease .8s;
+    opacity: ${props => props.opacityControl === 1 ? '1' : '0'};
 
     video {
         height:100%;

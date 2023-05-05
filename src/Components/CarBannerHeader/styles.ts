@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ResumContainer = styled.div`
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     background-position: center;
     background-size: cover;
