@@ -9,7 +9,8 @@ type Props = {
 }
 export const PageContainer = styled.div<Props>`
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    overflow:hidden;
 `
 
 export const ContainerBG = styled(motion.div)`
@@ -59,7 +60,7 @@ export const Arrowleft = styled.div<Props>`
     }
 `;
 
-export const RightArrow = styled.div<Props>`
+export const RightArrow = styled(motion.div)<Props>`
     position: absolute;
     top: ${props => props.marginNeed ? '2%' : '55%'};
     right: 7.5%;

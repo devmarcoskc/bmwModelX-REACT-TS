@@ -79,8 +79,8 @@ const BannerAndSlider = ({SlidesInfos, IMGBG, marginBottomIsNeed}: Props) => {
 
             {isDesktopScreen &&
                 <C.Slider currentSlide={currentSlide}> 
-                    {SlidesInfos.map((item, index) => (
-                        <C.Slide key={index}>
+                    {SlidesInfos.map((item) => (
+                        <C.Slide key={item.title}>
                             <img src={item.img}/>
                             <h4>{item.title}</h4>
                             <p>Pellentesque habitant morbi tristique 
